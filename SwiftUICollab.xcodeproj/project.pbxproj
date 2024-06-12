@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527E1B392C1A564B0024E6E4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 527E1B382C1A564B0024E6E4 /* SDWebImageSwiftUI */; };
 		6F74D9242C1975150074C62C /* SwiftUICollabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9232C1975150074C62C /* SwiftUICollabApp.swift */; };
 		6F74D9262C1975150074C62C /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9252C1975150074C62C /* WeatherView.swift */; };
 		6F74D9282C1975170074C62C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F74D9272C1975170074C62C /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527E1B392C1A564B0024E6E4 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = SwiftUICollab;
+			packageProductDependencies = (
+				527E1B382C1A564B0024E6E4 /* SDWebImageSwiftUI */,
+			);
 			productName = SwiftUICollab;
 			productReference = 6F74D9202C1975150074C62C /* SwiftUICollab.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +184,9 @@
 				Base,
 			);
 			mainGroup = 6F74D9172C1975150074C62C;
+			packageReferences = (
+				527E1B372C1A564B0024E6E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 6F74D9212C1975150074C62C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -424,6 +432,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		527E1B372C1A564B0024E6E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		527E1B382C1A564B0024E6E4 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 527E1B372C1A564B0024E6E4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F74D9182C1975150074C62C /* Project object */;
 }
