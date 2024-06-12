@@ -17,7 +17,11 @@ public class NetworkService {
     
     public init() {}
     
-    public func getData<T: Decodable>(urlString: String, headers: [String: String] = [:], completion: @escaping (Result<T, Error>) -> Void) {
+    public func getData<T: Decodable>(urlString: String, headers: [String: String] = [:],
+                                      dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
+                                      keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys,
+                                      completion: @escaping (Result<T, Error>) -> Void) {
+        
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.wrongResponse))
             return
@@ -48,6 +52,9 @@ public class NetworkService {
             
             do {
                 let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = dateDecodingStrategy
+                decoder.keyDecodingStrategy = keyDecodingStrategy
+                
                 let object = try decoder.decode(T.self, from: data)
                 
                 DispatchQueue.main.async {

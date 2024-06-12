@@ -6,8 +6,21 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct WeatherView: View {
+    @StateObject private var viewModel = WeatherViewModel()
+
+    let dateFormatter = DateFormatter()
+    let hourlyDateFormatter = DateFormatter()
+    let hourlyDateFormatterDay = DateFormatter()
+    
+    init() {
+        dateFormatter.dateFormat = "E"
+        hourlyDateFormatter.dateFormat = "HH:mm"
+        hourlyDateFormatterDay.dateFormat = "MMM d"
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
