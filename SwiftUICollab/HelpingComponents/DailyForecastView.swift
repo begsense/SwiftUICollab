@@ -1,5 +1,5 @@
 //
-//  ExtractedSubview.swift
+//  DailyForecastView.swift
 //  Weather
 //
 //  Created by Luka  Kharatishvili on 12.06.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExtractedView: View {
+struct DailyForecastView: View {
     var weekDay: String
     var image: String
     var minTemp: String
@@ -33,14 +33,14 @@ struct ExtractedView: View {
             }
         }
 
-        .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 1)
+        .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.85)
         .padding(.bottom, 14)
         .padding(.leading, 13)
         .padding(.trailing, 19)
-        .padding(.top, 21)
+        .padding(.top, 12)
     }
 }
 
 #Preview {
-    ExtractedView(weekDay: "Monday", image: "Image", minTemp: "31°C", maxTemp: "29°C")
+    DailyForecastView(weekDay: "Monday", image: "Image", minTemp: "31°C", maxTemp: "29°C")
 }

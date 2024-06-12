@@ -25,25 +25,15 @@ struct WeatherView: View {
                     .position(x: 100, y: 100)
 
                 ScrollView {
-                    VStack(alignment: .center) {
-                        Text("30º")
-                            .font(.system(size: 64))
-                            .fontWeight(.semibold)
-                        Text("Precipitations")
-                        Text("Max.: 34º   Min.: 28º")
-                            .padding(.bottom, 20)
-                    }
-                    .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.4)
+                    CurrentWeatherInfoView()
 
-                    .padding(.leading, 13)
-                    .padding(.trailing, 20)
-                    .padding(.bottom, 20)
-                    .foregroundStyle(Color.white)
+                    AdditionalInfoView()
 
-                    ExtractedView2()
+                    HourlyForecastView()
 
-                    ExtractedView(weekDay: "Monday", image: "Image", minTemp: "31°C", maxTemp: "27°C")
+                    DailyForecastView(weekDay: "Monday", image: "Image", minTemp: "31°C", maxTemp: "27°C")
                 }
+
                 .padding(.top, 90)
             }
             .background(

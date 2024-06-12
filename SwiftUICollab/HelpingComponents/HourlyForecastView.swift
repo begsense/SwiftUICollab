@@ -1,5 +1,5 @@
 //
-//  ExtractedSubview2.swift
+//  HourlyForecastView.swift
 //  Weather
 //
 //  Created by Luka  Kharatishvili on 12.06.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExtractedView2: View {
+struct HourlyForecastView: View {
     var body: some View {
         VStack(alignment: .center) {
             HStack {
@@ -64,7 +64,7 @@ struct ExtractedView2: View {
             .padding(.leading, 13)
             .padding(.trailing, 19)
         }
-        .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 1)
+        .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.85)
         .padding(.leading, 13)
         .padding(.trailing, 19)
     }
@@ -82,5 +82,5 @@ extension View {
     }
 }
 #Preview {
-    ExtractedView2()
+    HourlyForecastView()
 }
