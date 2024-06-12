@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class WeatherViewModel: ObservableObject {
+ 
+    enum ViewState {
+        case sunny
+        case cloudy
+        case rainy
+        case snowy
+    }
+    
+}

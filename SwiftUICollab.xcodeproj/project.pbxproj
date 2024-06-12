@@ -14,6 +14,7 @@
 		6F74D9342C1975420074C62C /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9332C1975420074C62C /* WeatherViewModel.swift */; };
 		6F74D9372C1975730074C62C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9362C1975730074C62C /* Forecast.swift */; };
 		6F74D9392C19757E0074C62C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9382C19757E0074C62C /* City.swift */; };
+		6F74D93B2C198C1A0074C62C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D93A2C198C1A0074C62C /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		6F74D9332C1975420074C62C /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		6F74D9362C1975730074C62C /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		6F74D9382C19757E0074C62C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		6F74D93A2C198C1A0074C62C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +59,11 @@
 		6F74D9222C1975150074C62C /* SwiftUICollab */ = {
 			isa = PBXGroup;
 			children = (
+				6F74D9232C1975150074C62C /* SwiftUICollabApp.swift */,
+				6F74D93A2C198C1A0074C62C /* NetworkService.swift */,
 				6F74D9352C19755A0074C62C /* Models */,
 				6F74D9322C1975310074C62C /* ViewModels */,
 				6F74D9312C1975220074C62C /* Views */,
-				6F74D9232C1975150074C62C /* SwiftUICollabApp.swift */,
 				6F74D9272C1975170074C62C /* Assets.xcassets */,
 				6F74D9292C1975170074C62C /* Preview Content */,
 			);
@@ -174,6 +177,7 @@
 				6F74D9392C19757E0074C62C /* City.swift in Sources */,
 				6F74D9262C1975150074C62C /* WeatherView.swift in Sources */,
 				6F74D9342C1975420074C62C /* WeatherViewModel.swift in Sources */,
+				6F74D93B2C198C1A0074C62C /* NetworkService.swift in Sources */,
 				6F74D9242C1975150074C62C /* SwiftUICollabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
