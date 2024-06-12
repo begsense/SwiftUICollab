@@ -18,7 +18,7 @@ struct MenuView: View {
                     Label(option, systemImage: "checkmark")
                 }
             }
-            NavigationLink(destination: NewLocation()) {
+            NavigationLink(destination: SearchView()) {
                 Label("Add new location", systemImage: "location.fill")
             }
         } label: {
