@@ -13,6 +13,7 @@ struct WeatherView: View {
     @StateObject private var viewModel = WeatherViewModel()
     @Environment(\.colorScheme) var colorScheme
 
+
     var body: some View {
         let temperature = viewModel.forecast?.current.temp ?? 00.00
         let maxTemp = viewModel.forecast?.daily.first?.temp.max ?? 00.00
@@ -20,7 +21,7 @@ struct WeatherView: View {
         let humidity = viewModel.forecast?.current.humidity
         let uvi = viewModel.forecast?.current.uvi
         let windSpeed = viewModel.forecast?.current.wind_speed
-
+        
         NavigationStack {
             ZStack {
                 animationView
@@ -32,22 +33,19 @@ struct WeatherView: View {
                         .ignoresSafeArea()
                 }
 
-//                Image("Sun")
-//                    .resizable()
-//                    .frame(width: 138, height: 138)
-//                    .scaledToFit()
-//                    .position(x: 100, y: 100)
-                
                 ScrollView {
                     CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp))
-
+                    
                     AdditionalInfoView(humidity: humidity, uvi: uvi, windSpeed: windSpeed)
-
-                    HourlyForecastView()
-
-                    DailyForecastView(weekDay: "Monday", image: "Image", minTemp: "31°C", maxTemp: "27°C")
+                    
+                    if let hourlyForecasts = viewModel.forecast?.hourly {
+                        HourlyForecastView(hourlyForecasts: hourlyForecasts)
+                    }
+                    
+                    if let dailyForecasts = viewModel.forecast?.daily {
+                        DailyForecastView(dailyForecasts: dailyForecasts)
+                    }
                 }
-
                 .padding(.top, 90)
             }
             .background(

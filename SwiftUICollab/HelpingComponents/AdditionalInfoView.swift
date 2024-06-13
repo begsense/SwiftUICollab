@@ -47,6 +47,3 @@ struct AdditionalInfoView: View {
     }
 }
 
-#Preview {
-    AdditionalInfoView(humidity: 1, uvi: 2, windSpeed: 3)
-}
