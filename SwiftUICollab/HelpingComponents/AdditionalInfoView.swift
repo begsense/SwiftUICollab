@@ -8,25 +8,32 @@
 import SwiftUI
 
 struct AdditionalInfoView: View {
+    @StateObject var viewModel = WeatherViewModel()
+    var humidity: Int?
+    var uvi: Double?
+    var windSpeed: Double?
+
     var body: some View {
         HStack(alignment: .center, spacing: 30) {
             HStack(spacing: 5) {
-                Text("icon")
-                Text("18%")
+                Image("rainProb")
+
+                Text("\(humidity ?? 0)")
             }
             .padding([.leading, .trailing], 10.5)
             .padding([.top, .bottom], 5)
 
             HStack(spacing: 5) {
-                Text("icon")
-                Text("67%")
+                Image("humidity")
+
+                Text(String(format: "%.1f", uvi ?? 0.0))
             }
             .padding([.leading, .trailing], 10.5)
             .padding([.top, .bottom], 5)
 
             HStack(spacing: 5) {
-                Text("icon")
-                Text("25%")
+                Image("windSp")
+                Text(String(format: "%.1f", windSpeed ?? 0.0))
             }
             .padding([.leading, .trailing], 10.5)
             .padding([.top, .bottom], 6)
@@ -41,5 +48,5 @@ struct AdditionalInfoView: View {
 }
 
 #Preview {
-    AdditionalInfoView()
+    AdditionalInfoView(humidity: 1, uvi: 2, windSpeed: 3)
 }
