@@ -12,25 +12,25 @@ struct AdditionalInfoView: View {
     var humidity: Int?
     var uvi: Double?
     var windSpeed: Double?
-
+    
     var body: some View {
         HStack(alignment: .center, spacing: 30) {
             HStack(spacing: 5) {
                 Image("rainProb")
-
+                
                 Text("\(humidity ?? 0)")
             }
             .padding([.leading, .trailing], 10.5)
             .padding([.top, .bottom], 5)
-
+            
             HStack(spacing: 5) {
                 Image("humidity")
-
+                
                 Text(String(format: "%.1f", uvi ?? 0.0))
             }
             .padding([.leading, .trailing], 10.5)
             .padding([.top, .bottom], 5)
-
+            
             HStack(spacing: 5) {
                 Image("windSp")
                 Text(String(format: "%.1f", windSpeed ?? 0.0))

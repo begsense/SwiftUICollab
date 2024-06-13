@@ -1,15 +1,15 @@
 //
-//  NightSnowing.swift
+//  Raining.swift
 //  SwiftUICollab
 //
-//  Created by Elene Donadze on 6/13/24.
+//  Created by M1 on 14.06.2024.
 //
 
 import SwiftUI
 import SpriteKit
 
 
-struct NightSnowing: View {
+struct Raining: View {
     let clouds = [
         Cloud(image: "Cloud", width: 180, height: 100, x: 300, y: 100),
         Cloud(image: "Cloud2", width: 120, height: 80, x: 29, y: 5),
@@ -24,7 +24,7 @@ struct NightSnowing: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("snowyNigthTop"), Color("snowyNightBottom")]),
+            LinearGradient(gradient: Gradient(colors: [Color("rainyFirst"), Color("rainySecond")]),
                            startPoint: .top,
                            endPoint: .bottom)
             .ignoresSafeArea(.all)
@@ -34,23 +34,37 @@ struct NightSnowing: View {
                     .resizable()
                     .frame(width: cloud.width, height: cloud.height)
                     .scaledToFit()
-                    .foregroundStyle(Color.gray)
+                    .foregroundStyle(Color.white)
                     .position(x: cloud.x, y: cloud.y)
             }
             
-            Image("Moon")
+            Image("Sun")
                 .resizable()
-                .foregroundStyle(Color.white)
                 .frame(width: 138, height: 138)
                 .scaledToFit()
                 .position(x: 100, y: 150)
             
-            SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+            SpriteView(scene: RainFall(), options: [.allowsTransparency])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
-                .foregroundStyle(Color.white)
         }
     }
 }
 
 
+class RainFall: SKScene {
+    override func sceneDidLoad() {
+        
+        size = UIScreen.main.bounds.size
+        scaleMode = .resizeFill
+        anchorPoint = CGPoint(x: 0.5, y: 1)
+        backgroundColor = .clear
+        let node = SKEmitterNode(fileNamed: "RainFall.sks")!
+        addChild(node)
+        node.particlePositionRange.dx = UIScreen.main.bounds.width
+    }
+    
+}
+//#Preview {
+//    Raining()
+//}

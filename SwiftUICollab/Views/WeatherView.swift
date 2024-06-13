@@ -12,8 +12,8 @@ struct WeatherView: View {
     @Binding var selectedCity: String
     @StateObject private var viewModel = WeatherViewModel()
     @Environment(\.colorScheme) var colorScheme
-
-
+    
+    
     var body: some View {
         let temperature = viewModel.forecast?.current.temp ?? 00.00
         let maxTemp = viewModel.forecast?.daily.first?.temp.max ?? 00.00
@@ -32,9 +32,9 @@ struct WeatherView: View {
                         .offset(x: geometry.size.width - 140, y: geometry.safeAreaInsets.top - 36)
                         .ignoresSafeArea()
                 }
-
+                
                 ScrollView {
-                    CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp))
+                    CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp), description: viewModel.forecast?.current.weather.first?.description  ?? "")
                     
                     AdditionalInfoView(humidity: humidity, uvi: uvi, windSpeed: windSpeed)
                     
