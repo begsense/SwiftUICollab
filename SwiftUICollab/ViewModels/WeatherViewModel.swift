@@ -11,7 +11,8 @@ class WeatherViewModel: ObservableObject {
     @Published var cities: City?
     @Published var forecast: Forecast?
     @Published var errorMessage: String?
-
+    @Published var viewState: ViewState = .sunny
+    
     private let networkService = NetworkService()
     private let cityAPIKey = "MmDtGhE02PkmgwzZ8vpung==hakrmbPcci8NwOeB"
     private let weatherAPIKey = "439d4b804bc8187953eb36d2a8c26a02"
@@ -70,6 +71,22 @@ class WeatherViewModel: ObservableObject {
             case let .failure(error):
                 self.errorMessage = error.localizedDescription
             }
+        }
+    }
+    
+    private func updateViewState() {
+        guard let main = forecast?.current.weather.first?.main else { return }
+        switch main.lowercased() {
+        case "clear":
+            viewState = .sunny
+        case "clouds":
+            viewState = .cloudy
+        case "rain":
+            viewState = .rainy
+        case "snow":
+            viewState = .snowy
+        default:
+            viewState = .sunny
         }
     }
 }
