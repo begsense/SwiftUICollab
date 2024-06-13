@@ -35,7 +35,7 @@ struct WeatherView: View {
                     .scaledToFit()
                     .position(x: 100, y: 100)
                 
-               // animationView
+                animationView
 
                 ScrollView {
                     CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp))
@@ -66,13 +66,13 @@ struct WeatherView: View {
     private var animationView: some View {
         switch viewModel.viewState {
         case .sunny:
-            Text("sunny animation")
+            BirdView()
         case .cloudy:
-            Text("cloudy animation")
+            BirdView()
         case .rainy:
-            Text("rainy animation")
+            BirdView()
         case .snowy:
-            Text("snowy animation")
+            BirdView()
         }
     }
 }
