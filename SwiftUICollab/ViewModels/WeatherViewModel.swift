@@ -74,7 +74,7 @@ class WeatherViewModel: ObservableObject {
         }
     }
     
-    private func updateViewState() {
+    func updateViewState() {
         guard let main = forecast?.current.weather.first?.main else { return }
         switch main.lowercased() {
         case "clear":

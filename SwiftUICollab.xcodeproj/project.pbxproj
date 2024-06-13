@@ -63,8 +63,8 @@
 		BCCF14102C1B810300FD54BA /* CloudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudModel.swift; path = Archive/SwiftUICollab/Views/CloudModel.swift; sourceTree = SOURCE_ROOT; };
 		BCCF14112C1B810300FD54BA /* StarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarModel.swift; path = Archive/SwiftUICollab/Views/StarModel.swift; sourceTree = SOURCE_ROOT; };
 		BCCF14122C1B810300FD54BA /* CloudMoving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudMoving.swift; path = Archive/SwiftUICollab/Views/CloudMoving.swift; sourceTree = SOURCE_ROOT; };
-		BCCF14132C1B810300FD54BA /* NightSnowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightSnowing.swift; path = Archive/SwiftUICollab/Views/NightSnowing.swift; sourceTree = SOURCE_ROOT; };
-		BCCF14182C1B812000FD54BA /* SpriteFiless */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpriteFiless; path = Archive/SwiftUICollab/Views/SpriteFiless; sourceTree = SOURCE_ROOT; };
+		BCCF14132C1B810300FD54BA /* NightSnowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightSnowing.swift; path = SwiftUICollab/Views/NightSnowing.swift; sourceTree = SOURCE_ROOT; };
+		BCCF14182C1B812000FD54BA /* SpriteFiless */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpriteFiless; path = SwiftUICollab/HelpingComponents/SpriteFiless; sourceTree = SOURCE_ROOT; };
 		BCCF141A2C1B82B000FD54BA /* Snowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Snowing.swift; path = Archive/SwiftUICollab/Views/Snowing.swift; sourceTree = SOURCE_ROOT; };
 		BCCF141B2C1B82B000FD54BA /* NightRaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightRaining.swift; path = Archive/SwiftUICollab/Views/NightRaining.swift; sourceTree = SOURCE_ROOT; };
 		BCCF141C2C1B82B000FD54BA /* WarmNight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WarmNight.swift; path = Archive/SwiftUICollab/Views/WarmNight.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +128,7 @@
 		6F74D9312C1975220074C62C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCCF14132C1B810300FD54BA /* NightSnowing.swift */,
 				783B3FE62C1A0842006EF0F1 /* MenuView.swift */,
 				BCCF141D2C1B82B000FD54BA /* BirdView.swift */,
 				BCCF141F2C1B82B000FD54BA /* CloudView.swift */,
@@ -163,11 +164,10 @@
 		6F74D9402C1A23160074C62C /* HelpingComponents */ = {
 			isa = PBXGroup;
 			children = (
+				BCCF14182C1B812000FD54BA /* SpriteFiless */,
 				783B3FE82C1A085E006EF0F1 /* Glassmorphism.swift */,
 				BCCF14102C1B810300FD54BA /* CloudModel.swift */,
 				BCCF14122C1B810300FD54BA /* CloudMoving.swift */,
-				BCCF14182C1B812000FD54BA /* SpriteFiless */,
-				BCCF14132C1B810300FD54BA /* NightSnowing.swift */,
 				BCCF14112C1B810300FD54BA /* StarModel.swift */,
 				783B3FE32C1A0837006EF0F1 /* DailyForecastView.swift */,
 				783B3FE22C1A0837006EF0F1 /* HourlyForecastView.swift */,

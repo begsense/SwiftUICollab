@@ -66,6 +66,6 @@ class RainFall: SKScene {
     }
     
 }
-#Preview {
-    Raining()
-}
+//#Preview {
+//    Raining()
+//}

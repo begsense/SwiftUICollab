@@ -15,9 +15,10 @@ struct BirdView: View {
 
     
     var body: some View {
-        
-        birds
-        .edgesIgnoringSafeArea(.all)
+        ZStack {
+            birds
+            .edgesIgnoringSafeArea(.all)
+        }
     }
     
     func moveBird1() {
