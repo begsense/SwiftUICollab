@@ -11,7 +11,9 @@ import SwiftUI
 struct WeatherView: View {
     @Binding var selectedCity: String
     @StateObject private var viewModel = WeatherViewModel()
-    
+    @Environment(\.colorScheme) var colorScheme
+
+
     var body: some View {
         let temperature = viewModel.forecast?.current.temp ?? 00.00
         let maxTemp = viewModel.forecast?.daily.first?.temp.max ?? 00.00
@@ -22,20 +24,14 @@ struct WeatherView: View {
         
         NavigationStack {
             ZStack {
+                animationView
+                
                 GeometryReader { geometry in
                     MenuView(selectedCity: $selectedCity)
                         .frame(width: 170, height: 36)
                         .offset(x: geometry.size.width - 140, y: geometry.safeAreaInsets.top - 36)
                         .ignoresSafeArea()
                 }
-                
-                Image("Sun")
-                    .resizable()
-                    .frame(width: 138, height: 138)
-                    .scaledToFit()
-                    .position(x: 100, y: 100)
-
-                animationView
 
                 ScrollView {
                     CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp))
@@ -60,6 +56,7 @@ struct WeatherView: View {
         }
         .onAppear {
             viewModel.getWeatherForecast(for: selectedCity)
+            viewModel.updateViewState()
         }
         .onChange(of: selectedCity) { _, newCity in
             viewModel.getWeatherForecast(for: newCity)
@@ -67,15 +64,17 @@ struct WeatherView: View {
     }
     
     private var animationView: some View {
+        let isDarkMode = colorScheme == .dark
+        
         switch viewModel.viewState {
         case .sunny:
-            BirdView()
+            return isDarkMode ? AnyView(WarmCloudy()) : AnyView(BirdView())
         case .cloudy:
-            BirdView()
+            return isDarkMode ? AnyView(WarmCloudy()) : AnyView(CloudView())
         case .rainy:
-            BirdView()
+            return isDarkMode ? AnyView(NightRaining()) : AnyView(Raining())
         case .snowy:
-            BirdView()
+            return isDarkMode ? AnyView(NightSnowing()) : AnyView(Snowing())
         }
     }
 }
