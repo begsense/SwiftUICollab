@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		527E1B392C1A564B0024E6E4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 527E1B382C1A564B0024E6E4 /* SDWebImageSwiftUI */; };
+		6F6DEE8E2C1BB743001E164F /* CloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE8D2C1BB743001E164F /* CloudModel.swift */; };
+		6F6DEE902C1BB75D001E164F /* CloudMoving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE8F2C1BB75D001E164F /* CloudMoving.swift */; };
+		6F6DEE922C1BB785001E164F /* StarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE912C1BB785001E164F /* StarModel.swift */; };
+		6F6DEE942C1BB7B8001E164F /* BirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE932C1BB7B8001E164F /* BirdView.swift */; };
+		6F6DEE962C1BB7E4001E164F /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE952C1BB7E4001E164F /* CloudView.swift */; };
+		6F6DEE982C1BB806001E164F /* NightRaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE972C1BB806001E164F /* NightRaining.swift */; };
+		6F6DEE9A2C1BB823001E164F /* Raining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE992C1BB823001E164F /* Raining.swift */; };
+		6F6DEE9C2C1BB840001E164F /* Snowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE9B2C1BB840001E164F /* Snowing.swift */; };
+		6F6DEE9E2C1BB85D001E164F /* WarmCloudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE9D2C1BB85D001E164F /* WarmCloudy.swift */; };
+		6F6DEEA02C1BB87B001E164F /* WarmNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6DEE9F2C1BB87B001E164F /* WarmNight.swift */; };
 		6F74D9242C1975150074C62C /* SwiftUICollabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9232C1975150074C62C /* SwiftUICollabApp.swift */; };
 		6F74D9262C1975150074C62C /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F74D9252C1975150074C62C /* WeatherView.swift */; };
 		6F74D9282C1975170074C62C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F74D9272C1975170074C62C /* Assets.xcassets */; };
@@ -26,21 +36,21 @@
 		78620DDC2C1A425C00E4A296 /* CurrentWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */; };
 		78620DDE2C1A7C0800E4A296 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */; };
 		78620DE02C1A8C6500E4A296 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDF2C1A8C6500E4A296 /* SearchViewModel.swift */; };
-		BCCF14142C1B810300FD54BA /* CloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14102C1B810300FD54BA /* CloudModel.swift */; };
-		BCCF14152C1B810300FD54BA /* StarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14112C1B810300FD54BA /* StarModel.swift */; };
-		BCCF14162C1B810300FD54BA /* CloudMoving.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14122C1B810300FD54BA /* CloudMoving.swift */; };
 		BCCF14172C1B810300FD54BA /* NightSnowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14132C1B810300FD54BA /* NightSnowing.swift */; };
 		BCCF14192C1B812000FD54BA /* SpriteFiless in Resources */ = {isa = PBXBuildFile; fileRef = BCCF14182C1B812000FD54BA /* SpriteFiless */; };
-		BCCF14212C1B82B000FD54BA /* Snowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF141A2C1B82B000FD54BA /* Snowing.swift */; };
-		BCCF14222C1B82B000FD54BA /* NightRaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF141B2C1B82B000FD54BA /* NightRaining.swift */; };
-		BCCF14232C1B82B000FD54BA /* WarmNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF141C2C1B82B000FD54BA /* WarmNight.swift */; };
-		BCCF14242C1B82B000FD54BA /* BirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF141D2C1B82B000FD54BA /* BirdView.swift */; };
-		BCCF14252C1B82B000FD54BA /* Raining.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF141E2C1B82B000FD54BA /* Raining.swift */; };
-		BCCF14262C1B82B000FD54BA /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF141F2C1B82B000FD54BA /* CloudView.swift */; };
-		BCCF14272C1B82B000FD54BA /* WarmCloudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14202C1B82B000FD54BA /* WarmCloudy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F6DEE8D2C1BB743001E164F /* CloudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudModel.swift; sourceTree = "<group>"; };
+		6F6DEE8F2C1BB75D001E164F /* CloudMoving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMoving.swift; sourceTree = "<group>"; };
+		6F6DEE912C1BB785001E164F /* StarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarModel.swift; sourceTree = "<group>"; };
+		6F6DEE932C1BB7B8001E164F /* BirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdView.swift; sourceTree = "<group>"; };
+		6F6DEE952C1BB7E4001E164F /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
+		6F6DEE972C1BB806001E164F /* NightRaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightRaining.swift; sourceTree = "<group>"; };
+		6F6DEE992C1BB823001E164F /* Raining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raining.swift; sourceTree = "<group>"; };
+		6F6DEE9B2C1BB840001E164F /* Snowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowing.swift; sourceTree = "<group>"; };
+		6F6DEE9D2C1BB85D001E164F /* WarmCloudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmCloudy.swift; sourceTree = "<group>"; };
+		6F6DEE9F2C1BB87B001E164F /* WarmNight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmNight.swift; sourceTree = "<group>"; };
 		6F74D9202C1975150074C62C /* SwiftUICollab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICollab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F74D9232C1975150074C62C /* SwiftUICollabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICollabApp.swift; sourceTree = "<group>"; };
 		6F74D9252C1975150074C62C /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -60,18 +70,8 @@
 		78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInfoView.swift; sourceTree = "<group>"; };
 		78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		78620DDF2C1A8C6500E4A296 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		BCCF14102C1B810300FD54BA /* CloudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudModel.swift; path = Archive/SwiftUICollab/Views/CloudModel.swift; sourceTree = SOURCE_ROOT; };
-		BCCF14112C1B810300FD54BA /* StarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarModel.swift; path = Archive/SwiftUICollab/Views/StarModel.swift; sourceTree = SOURCE_ROOT; };
-		BCCF14122C1B810300FD54BA /* CloudMoving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudMoving.swift; path = Archive/SwiftUICollab/Views/CloudMoving.swift; sourceTree = SOURCE_ROOT; };
 		BCCF14132C1B810300FD54BA /* NightSnowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightSnowing.swift; path = SwiftUICollab/Views/NightSnowing.swift; sourceTree = SOURCE_ROOT; };
 		BCCF14182C1B812000FD54BA /* SpriteFiless */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpriteFiless; path = SwiftUICollab/HelpingComponents/SpriteFiless; sourceTree = SOURCE_ROOT; };
-		BCCF141A2C1B82B000FD54BA /* Snowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Snowing.swift; path = Archive/SwiftUICollab/Views/Snowing.swift; sourceTree = SOURCE_ROOT; };
-		BCCF141B2C1B82B000FD54BA /* NightRaining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightRaining.swift; path = Archive/SwiftUICollab/Views/NightRaining.swift; sourceTree = SOURCE_ROOT; };
-		BCCF141C2C1B82B000FD54BA /* WarmNight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WarmNight.swift; path = Archive/SwiftUICollab/Views/WarmNight.swift; sourceTree = SOURCE_ROOT; };
-		BCCF141D2C1B82B000FD54BA /* BirdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirdView.swift; path = Archive/SwiftUICollab/Views/BirdView.swift; sourceTree = SOURCE_ROOT; };
-		BCCF141E2C1B82B000FD54BA /* Raining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Raining.swift; path = Archive/SwiftUICollab/Views/Raining.swift; sourceTree = SOURCE_ROOT; };
-		BCCF141F2C1B82B000FD54BA /* CloudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudView.swift; path = Archive/SwiftUICollab/Views/CloudView.swift; sourceTree = SOURCE_ROOT; };
-		BCCF14202C1B82B000FD54BA /* WarmCloudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WarmCloudy.swift; path = Archive/SwiftUICollab/Views/WarmCloudy.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,15 +130,15 @@
 			children = (
 				BCCF14132C1B810300FD54BA /* NightSnowing.swift */,
 				783B3FE62C1A0842006EF0F1 /* MenuView.swift */,
-				BCCF141D2C1B82B000FD54BA /* BirdView.swift */,
-				BCCF141F2C1B82B000FD54BA /* CloudView.swift */,
-				BCCF141B2C1B82B000FD54BA /* NightRaining.swift */,
-				BCCF141E2C1B82B000FD54BA /* Raining.swift */,
-				BCCF141A2C1B82B000FD54BA /* Snowing.swift */,
-				BCCF14202C1B82B000FD54BA /* WarmCloudy.swift */,
-				BCCF141C2C1B82B000FD54BA /* WarmNight.swift */,
 				6F74D9252C1975150074C62C /* WeatherView.swift */,
 				6F74D93C2C1A19690074C62C /* SearchView.swift */,
+				6F6DEE932C1BB7B8001E164F /* BirdView.swift */,
+				6F6DEE952C1BB7E4001E164F /* CloudView.swift */,
+				6F6DEE972C1BB806001E164F /* NightRaining.swift */,
+				6F6DEE992C1BB823001E164F /* Raining.swift */,
+				6F6DEE9B2C1BB840001E164F /* Snowing.swift */,
+				6F6DEE9D2C1BB85D001E164F /* WarmCloudy.swift */,
+				6F6DEE9F2C1BB87B001E164F /* WarmNight.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,15 +166,15 @@
 			children = (
 				BCCF14182C1B812000FD54BA /* SpriteFiless */,
 				783B3FE82C1A085E006EF0F1 /* Glassmorphism.swift */,
-				BCCF14102C1B810300FD54BA /* CloudModel.swift */,
-				BCCF14122C1B810300FD54BA /* CloudMoving.swift */,
-				BCCF14112C1B810300FD54BA /* StarModel.swift */,
 				783B3FE32C1A0837006EF0F1 /* DailyForecastView.swift */,
 				783B3FE22C1A0837006EF0F1 /* HourlyForecastView.swift */,
 				6F74D93E2C1A1EC70074C62C /* SearchCell.swift */,
 				78620DD92C1A41FE00E4A296 /* AdditionalInfoView.swift */,
 				78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */,
 				78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */,
+				6F6DEE8D2C1BB743001E164F /* CloudModel.swift */,
+				6F6DEE8F2C1BB75D001E164F /* CloudMoving.swift */,
+				6F6DEE912C1BB785001E164F /* StarModel.swift */,
 			);
 			path = HelpingComponents;
 			sourceTree = "<group>";
@@ -256,33 +256,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCCF14262C1B82B000FD54BA /* CloudView.swift in Sources */,
 				6F74D93F2C1A1EC70074C62C /* SearchCell.swift in Sources */,
 				6F74D9372C1975730074C62C /* Forecast.swift in Sources */,
-				BCCF14232C1B82B000FD54BA /* WarmNight.swift in Sources */,
+				6F6DEE9A2C1BB823001E164F /* Raining.swift in Sources */,
 				78620DE02C1A8C6500E4A296 /* SearchViewModel.swift in Sources */,
 				6F74D9392C19757E0074C62C /* City.swift in Sources */,
-				BCCF14212C1B82B000FD54BA /* Snowing.swift in Sources */,
+				6F6DEE8E2C1BB743001E164F /* CloudModel.swift in Sources */,
 				783B3FE52C1A0837006EF0F1 /* DailyForecastView.swift in Sources */,
 				6F74D9262C1975150074C62C /* WeatherView.swift in Sources */,
 				6F74D93D2C1A19690074C62C /* SearchView.swift in Sources */,
 				783B3FE72C1A0842006EF0F1 /* MenuView.swift in Sources */,
-				BCCF14162C1B810300FD54BA /* CloudMoving.swift in Sources */,
+				6F6DEEA02C1BB87B001E164F /* WarmNight.swift in Sources */,
 				6F74D9342C1975420074C62C /* WeatherViewModel.swift in Sources */,
-				BCCF14152C1B810300FD54BA /* StarModel.swift in Sources */,
-				BCCF14252C1B82B000FD54BA /* Raining.swift in Sources */,
 				6F74D93B2C198C1A0074C62C /* NetworkService.swift in Sources */,
-				BCCF14272C1B82B000FD54BA /* WarmCloudy.swift in Sources */,
+				6F6DEE942C1BB7B8001E164F /* BirdView.swift in Sources */,
+				6F6DEE902C1BB75D001E164F /* CloudMoving.swift in Sources */,
+				6F6DEE982C1BB806001E164F /* NightRaining.swift in Sources */,
+				6F6DEE9E2C1BB85D001E164F /* WarmCloudy.swift in Sources */,
 				78620DDE2C1A7C0800E4A296 /* DateFormatterManager.swift in Sources */,
+				6F6DEE922C1BB785001E164F /* StarModel.swift in Sources */,
 				783B3FE92C1A085E006EF0F1 /* Glassmorphism.swift in Sources */,
 				78620DDA2C1A41FE00E4A296 /* AdditionalInfoView.swift in Sources */,
+				6F6DEE962C1BB7E4001E164F /* CloudView.swift in Sources */,
 				783B3FE42C1A0837006EF0F1 /* HourlyForecastView.swift in Sources */,
 				BCCF14172C1B810300FD54BA /* NightSnowing.swift in Sources */,
 				6F74D9242C1975150074C62C /* SwiftUICollabApp.swift in Sources */,
+				6F6DEE9C2C1BB840001E164F /* Snowing.swift in Sources */,
 				78620DDC2C1A425C00E4A296 /* CurrentWeatherInfoView.swift in Sources */,
-				BCCF14242C1B82B000FD54BA /* BirdView.swift in Sources */,
-				BCCF14142C1B810300FD54BA /* CloudModel.swift in Sources */,
-				BCCF14222C1B82B000FD54BA /* NightRaining.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

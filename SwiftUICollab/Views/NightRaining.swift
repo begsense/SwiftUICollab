@@ -1,15 +1,15 @@
 //
-//  NightSnowing.swift
+//  NightRaining.swift
 //  SwiftUICollab
 //
-//  Created by Elene Donadze on 6/13/24.
+//  Created by M1 on 14.06.2024.
 //
 
 import SwiftUI
 import SpriteKit
 
 
-struct NightSnowing: View {
+struct NightRaining: View {
     let clouds = [
         Cloud(image: "Cloud", width: 180, height: 100, x: 300, y: 100),
         Cloud(image: "Cloud2", width: 120, height: 80, x: 29, y: 5),
@@ -24,7 +24,7 @@ struct NightSnowing: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("snowyNigthTop"), Color("snowyNightBottom")]),
+            LinearGradient(gradient: Gradient(colors: [Color("nightRainTop"), Color("nightRainBottom")]),
                            startPoint: .top,
                            endPoint: .bottom)
             .ignoresSafeArea(.all)
@@ -40,17 +40,20 @@ struct NightSnowing: View {
             
             Image("Moon")
                 .resizable()
-                .foregroundStyle(Color.white)
                 .frame(width: 138, height: 138)
+                .foregroundStyle(Color.white)
                 .scaledToFit()
                 .position(x: 100, y: 150)
             
-            SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+            SpriteView(scene: RainFall(), options: [.allowsTransparency])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
-                .foregroundStyle(Color.white)
         }
     }
 }
 
 
+
+#Preview {
+    NightRaining()
+}

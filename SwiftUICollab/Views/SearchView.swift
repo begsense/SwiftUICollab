@@ -15,7 +15,7 @@ struct SearchView: View {
     @Environment(\.modelContext) var Context
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedCity: String
-
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -24,7 +24,7 @@ struct SearchView: View {
                         Image(systemName: "magnifyingglass")
                             .padding([.top, .bottom], 10)
                             .padding(.leading, 8)
-
+                        
                         TextField("Enter a city name", text: $searchText)
                             .autocorrectionDisabled()
                             .padding(.vertical, 10)
@@ -36,7 +36,7 @@ struct SearchView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
                     .padding(.trailing, searchText.isEmpty ? 20 : 14)
-
+                    
                     if !searchText.isEmpty {
                         Button(action: {
                             withAnimation {
@@ -50,7 +50,7 @@ struct SearchView: View {
                     }
                 }
                 .animation(.default, value: searchText)
-
+                
                 ScrollView {
                     VStack(alignment: .leading) {
                         ForEach(viewModel.cities, id: \.self) { city in
@@ -61,7 +61,7 @@ struct SearchView: View {
                                 }
                                 selectedCity = city.name ?? ""
                                 presentationMode.wrappedValue.dismiss()
-
+                                
                             }, label: {
                                 Text(city.name ?? "")
                                     .foregroundStyle(Color.black)

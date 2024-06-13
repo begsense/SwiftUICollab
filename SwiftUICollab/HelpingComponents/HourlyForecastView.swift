@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+
 struct HourlyForecastView: View {
     let hourlyForecasts: [Forecast.Hourly]
     var hourlyDateFormatter: DateFormatter {

@@ -17,7 +17,7 @@ class City: Decodable, Hashable, Identifiable {
     let country: String?
     let population: Int?
     let isCapital: Bool?
-
+    
     enum CodingKeys: String, CodingKey {
         case name
         case latitude
@@ -26,7 +26,7 @@ class City: Decodable, Hashable, Identifiable {
         case population
         case isCapital = "is_capital"
     }
-
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decodeIfPresent(String.self, forKey: .name)
