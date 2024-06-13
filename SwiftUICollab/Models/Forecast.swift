@@ -14,9 +14,9 @@ struct Forecast: Decodable {
             let min: Double
             let max: Double
         }
-
+        
         let temp: Temp
-
+        
         struct Weather: Decodable {
             let icon: String
             var weatherIconURL: URL {
@@ -24,14 +24,14 @@ struct Forecast: Decodable {
                 return URL(string: urlString)!
             }
         }
-
+        
         let weather: [Weather]
     }
-
+    
     struct Hourly: Decodable {
         let dt: Date
         let temp: Double
-
+        
         struct Weather: Decodable {
             let icon: String
             var weatherIconURL: URL {
@@ -39,10 +39,10 @@ struct Forecast: Decodable {
                 return URL(string: urlString)!
             }
         }
-
+        
         let weather: [Weather]
     }
-
+    
     struct Current: Decodable {
         let dt: Date
         let temp: Double
@@ -53,17 +53,18 @@ struct Forecast: Decodable {
         let visibility: Int
         let wind_speed: Double
         let weather: [Weather]
-
+        
         struct Weather: Decodable {
             let main: String
             let icon: String
+            let description: String
             var weatherIconURL: URL {
                 let urlString = "https://openweathermap.org/img/wn/\(icon)@2x.png"
                 return URL(string: urlString)!
             }
         }
     }
-
+    
     let daily: [Daily]
     let hourly: [Hourly]
     let current: Current
