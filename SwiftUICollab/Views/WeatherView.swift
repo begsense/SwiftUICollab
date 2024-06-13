@@ -36,6 +36,8 @@ struct WeatherView: View {
                     .frame(width: 138, height: 138)
                     .scaledToFit()
                     .position(x: 100, y: 100)
+                
+               // animationView
 
                 ScrollView {
                     CurrentWeatherInfoView()
@@ -60,6 +62,19 @@ struct WeatherView: View {
                                startPoint: .top,
                                endPoint: .bottom)
             )
+        }
+    }
+    
+    private var animationView: some View {
+        switch viewModel.viewState {
+        case .sunny:
+            Text("sunny animation")
+        case .cloudy:
+            Text("cloudy animation")
+        case .rainy:
+            Text("rainy animation")
+        case .snowy:
+            Text("snowy animation")
         }
     }
 }
