@@ -5,27 +5,25 @@
 //  Created by M1 on 12.06.2024.
 //
 
-import SwiftUI
 import SDWebImageSwiftUI
+import SwiftUI
 
 struct WeatherView: View {
+    @Binding var selectedCity: String
     @StateObject private var viewModel = WeatherViewModel()
 
-    let dateFormatter = DateFormatter()
-    let hourlyDateFormatter = DateFormatter()
-    let hourlyDateFormatterDay = DateFormatter()
-    
-    init() {
-        dateFormatter.dateFormat = "E"
-        hourlyDateFormatter.dateFormat = "HH:mm"
-        hourlyDateFormatterDay.dateFormat = "MMM d"
-    }
-    
     var body: some View {
+        let temperature = viewModel.forecast?.current.temp ?? 00.00
+        let maxTemp = viewModel.forecast?.daily.first?.temp.max ?? 00.00
+        let minTemp = viewModel.forecast?.daily.first?.temp.min ?? 00.00
+        let humidity = viewModel.forecast?.current.humidity
+        let uvi = viewModel.forecast?.current.uvi
+        let windSpeed = viewModel.forecast?.current.wind_speed
+
         NavigationStack {
             ZStack {
                 GeometryReader { geometry in
-                    MenuView()
+                    MenuView(selectedCity: $selectedCity)
                         .frame(width: 170, height: 36)
                         .offset(x: geometry.size.width - 140, y: geometry.safeAreaInsets.top - 36)
                         .ignoresSafeArea()
@@ -38,9 +36,9 @@ struct WeatherView: View {
                     .position(x: 100, y: 100)
 
                 ScrollView {
-                    CurrentWeatherInfoView()
+                    CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp))
 
-                    AdditionalInfoView()
+                    AdditionalInfoView(humidity: humidity, uvi: uvi, windSpeed: windSpeed)
 
                     HourlyForecastView()
 
@@ -54,16 +52,12 @@ struct WeatherView: View {
                                startPoint: .top,
                                endPoint: .bottom)
             )
-
-            .background(
-                LinearGradient(gradient: Gradient(colors: [Color("rainyTop"), Color("rainyBottom")]),
-                               startPoint: .top,
-                               endPoint: .bottom)
-            )
+        }
+        .onAppear {
+            viewModel.getWeatherForecast(for: selectedCity)
+        }
+        .onChange(of: selectedCity) { _, newCity in
+            viewModel.getWeatherForecast(for: newCity)
         }
     }
-}
-
-#Preview {
-    WeatherView()
 }

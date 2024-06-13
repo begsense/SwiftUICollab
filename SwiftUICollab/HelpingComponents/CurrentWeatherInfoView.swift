@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct CurrentWeatherInfoView: View {
+    @State private var scrollOffset: CGFloat = 0
+
+    var temperature: Int
+    var maxTemp: Int
+    var minTemp: Int
+
     var body: some View {
+        
         VStack(alignment: .center) {
-            Text("30º")
+            Text("\(temperature)º")
                 .font(.system(size: 64))
                 .fontWeight(.semibold)
             Text("Precipitations")
-            Text("Max.: 34º   Min.: 28º")
-                .padding(.bottom, 20)
+            HStack {
+                Text("Max.: \(maxTemp)º")
+                Text("Min.: \(minTemp)º")
+            }
+            .padding(.bottom, 20)
         }
         .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.4)
 
@@ -24,8 +34,4 @@ struct CurrentWeatherInfoView: View {
         .padding(.bottom, 12)
         .foregroundStyle(Color.white)
     }
-}
-
-#Preview {
-    CurrentWeatherInfoView()
 }

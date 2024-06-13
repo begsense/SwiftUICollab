@@ -5,26 +5,29 @@
 //  Created by Luka  Kharatishvili on 12.06.24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct MenuView: View {
+    @Binding var selectedCity: String
+    @Query var savedCities: [City]
+    @Environment(\.modelContext) var Context
     var body: some View {
-        var savedLocations = ["first", "second", "third"]
-        return Menu {
-            ForEach(savedLocations, id: \.self) { option in
+        Menu {
+            ForEach(savedCities, id: \.self) { option in
                 Button(action: {
-                    // Your action here
+                    selectedCity = option.name ?? ""
                 }) {
-                    Label(option, systemImage: "checkmark")
+                    Label(option.name ?? "", systemImage: option.name == selectedCity ? "checkmark" : "")
                 }
             }
-            NavigationLink(destination: SearchView()) {
+            NavigationLink(destination: SearchView(selectedCity: $selectedCity)) {
                 Label("Add new location", systemImage: "location.fill")
             }
         } label: {
             HStack {
                 Image("location")
-                Text("Tbilisi")
+                Text(selectedCity)
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -40,8 +43,4 @@ struct MenuView: View {
             )
         }
     }
-}
-
-#Preview {
-    MenuView()
 }
