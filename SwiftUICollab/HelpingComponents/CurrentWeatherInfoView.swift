@@ -21,7 +21,7 @@ struct CurrentWeatherInfoView: View {
                 .font(.system(size: 64))
                 .fontWeight(.semibold)
             
-            Text(description)
+            Text(description.capitalized)
             
             HStack {
                 Text("Max.: \(maxTemp)º")

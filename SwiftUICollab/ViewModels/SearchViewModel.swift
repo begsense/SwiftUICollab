@@ -108,11 +108,8 @@ class SearchViewModel: ObservableObject {
         }
     }
 
-//    func updateViewState() {
-//        let city: City
-////        Text("\()")
-//
-////        let main = forecasts[city.name ?? ""]?.current.weather.first?.main ?? ""
+//    func updateViewState(for forecast: Forecast) {
+//        let main = forecast.current.weather.first?.main ?? ""
 //        switch main.lowercased() {
 //        case "clear":
 //            viewState = .sunny
