@@ -11,7 +11,6 @@ import SwiftUI
 struct WeatherView: View {
     @Binding var selectedCity: String
     @StateObject private var viewModel = WeatherViewModel()
-    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         let temperature = viewModel.forecast?.current.temp ?? 00.00
@@ -24,7 +23,7 @@ struct WeatherView: View {
         NavigationStack {
             ZStack {
                 animationView
-
+                Text("\(viewModel.forecast?.timezone ?? "")")
                 GeometryReader { geometry in
                     MenuView(selectedCity: $selectedCity)
                         .frame(width: 170, height: 36)
@@ -38,13 +37,14 @@ struct WeatherView: View {
                     AdditionalInfoView(humidity: humidity, uvi: uvi, windSpeed: windSpeed)
 
                     if let hourlyForecasts = viewModel.forecast?.hourly {
-                        HourlyForecastView(hourlyForecasts: hourlyForecasts)
+                        HourlyForecastView(timezoneIdentifier: DateFormatterManager.shared.timezoneIdentifier, hourlyForecasts: hourlyForecasts)
                     }
 
                     if let dailyForecasts = viewModel.forecast?.daily {
                         DailyForecastView(dailyForecasts: dailyForecasts)
                     }
                 }
+
                 .scrollIndicators(.hidden)
                 .padding(.top, 90)
             }
@@ -57,24 +57,24 @@ struct WeatherView: View {
         .onAppear {
             viewModel.getWeatherForecast(for: selectedCity)
             viewModel.updateViewState()
+            viewModel.updateIsNight()
         }
         .onChange(of: selectedCity) { _, newCity in
             viewModel.getWeatherForecast(for: newCity)
+//            viewModel.updateIsNight()
         }
     }
 
     private var animationView: some View {
-        let isDarkMode = colorScheme == .dark
-
         switch viewModel.viewState {
         case .sunny:
-            return isDarkMode ? AnyView(WarmCloudy()) : AnyView(BirdView())
+            return viewModel.isNight ? AnyView(WarmNight()) : AnyView(BirdView())
         case .cloudy:
-            return isDarkMode ? AnyView(WarmCloudy()) : AnyView(CloudView())
+            return viewModel.isNight ? AnyView(WarmCloudy()) : AnyView(CloudView())
         case .rainy:
-            return isDarkMode ? AnyView(NightRaining()) : AnyView(Raining())
+            return viewModel.isNight ? AnyView(NightRaining()) : AnyView(Raining())
         case .snowy:
-            return isDarkMode ? AnyView(NightSnowing()) : AnyView(Snowing())
+            return viewModel.isNight ? AnyView(NightSnowing()) : AnyView(Snowing())
         }
     }
 }

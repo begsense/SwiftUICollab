@@ -15,7 +15,9 @@ struct SearchView: View {
     @Environment(\.modelContext) var Context
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedCity: String
-//    @Published var forecasts: [String: Forecast] = [:]
+    @State private var showAlert = false
+    @State private var showCityAlreadyAddedAlert = false
+    @State private var showTbilisiAlert = false
 
     var body: some View {
         NavigationStack {
@@ -61,11 +63,13 @@ struct SearchView: View {
                             ForEach(viewModel.cities, id: \.self) { city in
 
                                 Button(action: {
-                                    if !savedCities.contains(where: { $0.id == city.id }) {
+                                    if let index = savedCities.firstIndex(where: { $0.name == city.name }) {
+                                        showCityAlreadyAddedAlert = true
+                                    } else {
                                         Context.insert(city)
+                                        selectedCity = city.name ?? ""
+                                        presentationMode.wrappedValue.dismiss()
                                     }
-                                    selectedCity = city.name ?? ""
-                                    presentationMode.wrappedValue.dismiss()
 
                                 }, label: {
                                     Text(city.name ?? "")
@@ -86,12 +90,16 @@ struct SearchView: View {
             .background(Color.searchBackground)
         }
         .background(Color.searchBackground)
-        .onAppear {
+        .alert(isPresented: $showCityAlreadyAddedAlert) {
+            Alert(
+                title: Text("ქალაქი უკვე დამატებულია"),
+                dismissButton: .default(Text("okydoky"))
+            )
         }
     }
 
     private var favoritesCell: some View {
-        ForEach(savedCities, id: \.self) { city in
+        return ForEach(savedCities, id: \.self) { city in
             HStack {
                 VStack(alignment: .leading) {
                     Text(city.name ?? "")
@@ -118,8 +126,14 @@ struct SearchView: View {
             .background(LinearGradient(colors: [Color(red: 46 / 255, green: 176 / 255, blue: 221 / 255, opacity: 1), Color(red: 142 / 255, green: 173 / 255, blue: 225 / 255, opacity: 1)], startPoint: .top, endPoint: .bottom))
             .cornerRadius(16)
             .padding([.leading, .trailing], 20)
+            .onTapGesture {
+                selectedCity = city.name ?? ""
+                presentationMode.wrappedValue.dismiss()
+            }
             .onLongPressGesture {
-                deleteCity(city)
+                if city.name != "Tbilisi" {
+                    deleteCity(city)
+                }
             }
         }
     }
