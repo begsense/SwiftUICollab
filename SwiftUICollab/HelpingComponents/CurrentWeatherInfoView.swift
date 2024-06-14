@@ -33,7 +33,7 @@ struct CurrentWeatherInfoView: View {
         
         .padding(.leading, 13)
         .padding(.trailing, 20)
-        .padding(.bottom, 12)
+        .padding(.bottom, 22)
         .foregroundStyle(Color.white)
     }
 }

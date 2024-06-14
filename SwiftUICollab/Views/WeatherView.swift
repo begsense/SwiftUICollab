@@ -45,6 +45,7 @@ struct WeatherView: View {
                         DailyForecastView(dailyForecasts: dailyForecasts)
                     }
                 }
+                .scrollIndicators(.hidden)
                 .padding(.top, 90)
             }
             .background(
