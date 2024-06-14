@@ -24,8 +24,8 @@ struct DailyForecastView: View {
                         VStack(alignment: .leading) {
                             HStack {
                                 Text(dateFormatter.string(from: daily.dt))
-                                    .shadow(color: Color.black.opacity(0.3), radius: 1, x: -2, y: 3)
-                                    .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+                                    .font(.custom("AlegreyaSans-Bold", size: 18))
+
                                 Spacer()
                             }
                             .foregroundStyle(Color.white)
@@ -68,8 +68,6 @@ struct DailyForecastView: View {
                         .font(.custom("AlegreyaSans-Bold", size: 18))
                     }
                     .frame(width: 300, height: 50)
-                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: -2, y: 3)
-                    .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
                     .padding(.horizontal)
                 }
             }

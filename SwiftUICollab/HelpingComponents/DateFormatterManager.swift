@@ -6,20 +6,20 @@
 //
 
 import Foundation
-
+ 
 class DateFormatterManager: ObservableObject {
     static let shared = DateFormatterManager(timezoneIdentifier: "Europe/Berlin")
-
+ 
     var timezoneIdentifier: String {
         didSet {
             updateFormattersTimezone()
         }
     }
-
+ 
     var dateFormatter: DateFormatter
     var hourlyDateFormatter: DateFormatter
     var hourlyDateFormatterDay: DateFormatter
-
+ 
     init(timezoneIdentifier: String) {
         self.timezoneIdentifier = timezoneIdentifier
         dateFormatter = DateFormatter()
@@ -27,15 +27,27 @@ class DateFormatterManager: ObservableObject {
         hourlyDateFormatterDay = DateFormatter()
         updateFormattersTimezone()
     }
-
+ 
     private func updateFormattersTimezone() {
         dateFormatter.dateFormat = "E"
         dateFormatter.timeZone = TimeZone(identifier: timezoneIdentifier)
-
+ 
         hourlyDateFormatter.dateFormat = "HH:mm"
         hourlyDateFormatter.timeZone = TimeZone(identifier: timezoneIdentifier)
-
+ 
         hourlyDateFormatterDay.dateFormat = "MMM d"
         hourlyDateFormatterDay.timeZone = TimeZone(identifier: timezoneIdentifier)
+    }
+    
+    func formatTime(date: Date, timezoneOffset: Int? = nil) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        if let offset = timezoneOffset {
+            let timezone = TimeZone(secondsFromGMT: offset)
+            dateFormatter.timeZone = timezone
+        }
+        
+        return dateFormatter.string(from: date)
     }
 }

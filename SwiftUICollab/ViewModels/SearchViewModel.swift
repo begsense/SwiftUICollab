@@ -19,7 +19,7 @@ class SearchViewModel: ObservableObject {
     @Published var forecasts: [String: Forecast] = [:]
     @Published var errorMessage: String?
     private let networkService = NetworkService()
-    private let cityAPIKey = "mL11N1OcSvHnMzpXwoIQ+w==ybPPjPTdov7XklZ9"
+    private let cityAPIKey = "mf8lCk+ZP9c48uvyBC4wLA==SNVWJlVpDoYAeCTn"
     private let weatherAPIKey = "439d4b804bc8187953eb36d2a8c26a02"
 
     func getCities(withName cityName: String) {

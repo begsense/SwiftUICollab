@@ -9,17 +9,14 @@ import SDWebImageSwiftUI
 import SwiftUI
 
 struct HourlyForecastView: View {
-    @StateObject var dateFormatterManager = DateFormatterManager.shared
     @State var timezoneIdentifier: String
-    let hourlyForecasts: [Forecast.Hourly]
-    var hourlyDateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter
-    }
+    @Binding private var hourlyForecasts: [Forecast.Hourly]
+    @Binding private var timezoneOffset: Int
 
-    func updateTimeZone(_ identifier: String) {
-        dateFormatterManager.timezoneIdentifier = identifier
+    init(timezoneIdentifier: String, hourlyForecasts: Binding<[Forecast.Hourly]>, timezoneOffset: Binding<Int>) {
+        self.timezoneIdentifier = timezoneIdentifier
+        _hourlyForecasts = hourlyForecasts
+        _timezoneOffset = timezoneOffset
     }
 
     var hourlyDateFormatterDay: DateFormatter {
@@ -36,16 +33,14 @@ struct HourlyForecastView: View {
                     .fontWeight(.bold)
                     .foregroundStyle(Color.white)
                     .blur(radius: 0.25)
-                    .shadow(color: Color.black.opacity(0.3), radius: 1, x: -2, y: 3)
-                    .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+                    
 
                 Spacer()
 
                 Text(hourlyDateFormatterDay.string(from: Date()))
                     .fontWeight(.regular)
                     .foregroundStyle(Color.white)
-                    .shadow(color: Color.black.opacity(0.3), radius: 1, x: -2, y: 3)
-                    .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+
             }
             .padding(.top, 12)
             .padding(.horizontal)
@@ -55,8 +50,7 @@ struct HourlyForecastView: View {
                     ForEach(hourlyForecasts, id: \.dt) { hourly in
                         VStack(alignment: .center) {
                             Text("\(Int(hourly.temp)) °C")
-                                .shadow(color: Color.black.opacity(0.3), radius: 1, x: -2, y: 3)
-                                .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+
 
                             if let weatherIconURL = hourly.weather.first?.weatherIconURL {
                                 WebImage(url: weatherIconURL)
@@ -64,14 +58,7 @@ struct HourlyForecastView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 75, height: 75)
                             }
-                            let dateFormatterManager: () = DateFormatterManager.shared.timezoneIdentifier = hourlyDateFormatterDay.string(from: Date())
-                            @State var time = DateFormatterManager.shared.hourlyDateFormatter.string(from: hourly.dt)
-                            Text(time)
-                                .shadow(color: Color.black.opacity(0.3), radius: 1, x: -2, y: 3)
-                                .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
-                            Text("\(hourly.dt)")
-                            
-                            
+                            Text(DateFormatterManager.shared.formatTime(date: hourly.dt, timezoneOffset: timezoneOffset))
 
                         }
                         .padding(.top, 13)
@@ -79,8 +66,7 @@ struct HourlyForecastView: View {
                         .frame(width: 70)
                         .frame(minHeight: 155)
                         .foregroundColor(Color.white)
-                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: -2, y: 3)
-                        .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+
                         .viewModifier(if: hourly.dt == hourlyForecasts.first?.dt) { view in
                             view.glassmorphism(backgroundColor: Color(UIColor(named: "white1") ?? .clear), cornerRadius: 20, blurOpacity: 1)
                                 .overlay(
@@ -95,6 +81,8 @@ struct HourlyForecastView: View {
             .scrollIndicators(.hidden)
             .padding(.horizontal)
         }
+        .shadow(color: Color.black.opacity(0.3  ), radius: 1, x: -2, y: 3)
+        .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
         .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.85)
         .padding(.horizontal)
     }
