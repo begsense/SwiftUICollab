@@ -2,31 +2,33 @@
 //  BirdView.swift
 //  SwiftUICollab
 //
-//  Created by M1 on 14.06.2024.
+//  Created by Elene Donadze on 6/12/24.
 //
 
 import SwiftUI
 
 struct BirdView: View {
     @State private var bird1Position = UIScreen.main.bounds.width
-    @State private var bird2Position = UIScreen.main.bounds.width + 25
+    @State private var bird2Position = UIScreen.main.bounds.width + 35
     @State private var bird3Position = UIScreen.main.bounds.width + 30
+
+
     
     var body: some View {
         ZStack {
             birds
-                .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.all)
         }
     }
     
     func moveBird1() {
-        withAnimation(Animation.linear(duration: 5).repeatForever(autoreverses: false)) {
+        withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: false)) {
             bird1Position = -50
         }
     }
     
     func moveBird2() {
-        withAnimation(Animation.linear(duration: 5).repeatForever(autoreverses: false)) {
+        withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
             bird2Position = -50
         }
     }
@@ -85,7 +87,7 @@ struct BirdView: View {
         )
     }
     
-    
+        
 }
 
 
