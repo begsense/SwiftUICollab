@@ -73,11 +73,15 @@ struct DailyForecastView: View {
                     .padding(.horizontal)
                 }
             }
+            .padding(.top, 15)
             .padding(.leading, 13)
             .padding(.trailing, 19)
+            .padding(.bottom, 14)
+
         }
         .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.85)
         .padding(.leading, 13)
         .padding(.trailing, 19)
+        .padding(.top, 21)
     }
 }

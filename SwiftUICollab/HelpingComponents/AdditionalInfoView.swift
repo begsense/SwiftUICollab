@@ -38,12 +38,14 @@ struct AdditionalInfoView: View {
             .padding([.leading, .trailing], 10.5)
             .padding([.top, .bottom], 6)
         }
+
         .frame(height: 47)
         .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.85)
         .foregroundStyle(Color.white)
         .padding(.leading, 13)
         .padding(.trailing, 20)
-        .padding(.bottom, 12)
+        .padding(.bottom, 22)
+
     }
 }
 

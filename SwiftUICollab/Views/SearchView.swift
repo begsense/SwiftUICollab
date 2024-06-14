@@ -36,6 +36,7 @@ struct SearchView: View {
                     }
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .padding(.leading, 16)
                     .padding(.trailing, searchText.isEmpty ? 20 : 14)
 
                     if !searchText.isEmpty {
@@ -60,8 +61,7 @@ struct SearchView: View {
                             ForEach(viewModel.cities, id: \.self) { city in
 
                                 Button(action: {
-                                    if let _ = savedCities.firstIndex(where: { $0.id == city.id }) {
-                                    } else {
+                                    if !savedCities.contains(where: { $0.id == city.id }) {
                                         Context.insert(city)
                                     }
                                     selectedCity = city.name ?? ""
@@ -70,9 +70,11 @@ struct SearchView: View {
                                 }, label: {
                                     Text(city.name ?? "")
                                         .foregroundStyle(Color.black)
+                                        .fontWeight(.medium)
                                 })
                                 .padding(.bottom, 19)
                             }
+                            .padding(.leading, 15)
                         }
                     }
                 }
@@ -80,7 +82,6 @@ struct SearchView: View {
                 Spacer()
                     .background(Color.searchBackground)
             }
-            .padding(.leading, 20)
             .navigationTitle("Locations")
             .background(Color.searchBackground)
         }
@@ -102,18 +103,30 @@ struct SearchView: View {
                     Text("\(viewModel.forecasts[city.name ?? ""]?.current.weather.first?.main ?? "")")
                         .font(.custom("SF Pro Display", size: 10))
                 }
+                .padding(.leading, 15)
+                .padding(.top, 11)
+                .padding(.bottom, 11)
 
                 Spacer()
                 Text("\(Int(viewModel.forecasts[city.name ?? ""]?.current.temp ?? 00))°")
                     .font(.custom("SF Pro Display", size: 53))
+                    .padding(.trailing, 10)
             }
             .foregroundStyle(Color.white)
             .onAppear { viewModel.getWeatherForecast(for: city.name ?? "")
             }
-            .padding(13)
             .background(LinearGradient(colors: [Color(red: 46 / 255, green: 176 / 255, blue: 221 / 255, opacity: 1), Color(red: 142 / 255, green: 173 / 255, blue: 225 / 255, opacity: 1)], startPoint: .top, endPoint: .bottom))
             .cornerRadius(16)
-            .padding(20)
+            .padding([.leading, .trailing], 20)
+            .onLongPressGesture {
+                deleteCity(city)
+            }
+        }
+    }
+
+    private func deleteCity(_ city: City) {
+        if let index = savedCities.firstIndex(of: city) {
+            Context.delete(savedCities[index])
         }
     }
 }
