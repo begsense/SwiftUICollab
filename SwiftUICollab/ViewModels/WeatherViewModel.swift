@@ -68,6 +68,7 @@ class WeatherViewModel: ObservableObject {
             switch result {
             case let .success(forecast):
                 self.forecast = forecast
+                self.updateViewState()
             case let .failure(error):
                 self.errorMessage = error.localizedDescription
             }
@@ -75,7 +76,7 @@ class WeatherViewModel: ObservableObject {
     }
     
     func updateViewState() {
-        guard let main = forecast?.current.weather.first?.main else { return }
+        let main = forecast?.current.weather.first?.main ?? ""
         switch main.lowercased() {
         case "clear":
             viewState = .sunny
