@@ -7,25 +7,6 @@
 
 import SwiftUI
 
-
-struct BlurView: UIViewRepresentable {
-    var style: UIBlurEffect.Style
-    var cornerRadius: CGFloat
-    
-    func makeUIView(context: Context) -> UIVisualEffectView {
-        let blurEffect = UIBlurEffect(style: style)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.clipsToBounds = true
-        blurView.layer.cornerRadius = cornerRadius
-        return blurView
-    }
-    
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-        uiView.effect = UIBlurEffect(style: style)
-        uiView.layer.cornerRadius = cornerRadius
-    }
-}
-
 struct Glassmorphism: ViewModifier {
     var blurStyle: UIBlurEffect.Style?
     var backgroundColor: Color
@@ -46,6 +27,24 @@ struct Glassmorphism: ViewModifier {
             content
                 .cornerRadius(cornerRadius)
         }
+    }
+}
+
+struct BlurView: UIViewRepresentable {
+    var style: UIBlurEffect.Style
+    var cornerRadius: CGFloat
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.clipsToBounds = true
+        blurView.layer.cornerRadius = cornerRadius
+        return blurView
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.effect = UIBlurEffect(style: style)
+        uiView.layer.cornerRadius = cornerRadius
     }
 }
 

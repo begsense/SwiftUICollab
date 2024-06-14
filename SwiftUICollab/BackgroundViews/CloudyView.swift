@@ -1,5 +1,5 @@
 //
-//  CloudView.swift
+//  CloudyView.swift
 //  SwiftUICollab
 //
 //  Created by M1 on 14.06.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CloudView: View {
+struct CloudyView: View {
     @State private var cloud1Position = UIScreen.main.bounds.width - 50
     @State private var cloud2Position = UIScreen.main.bounds.width - 200
     @State private var cloud3Position = UIScreen.main.bounds.width + 20
@@ -26,24 +26,6 @@ struct CloudView: View {
         )
     }
     
-    func moveCloud1() {
-        withAnimation(Animation.linear(duration: 30).repeatForever(autoreverses: false)) {
-            cloud1Position = -150
-        }
-    }
-    
-    func moveCloud2() {
-        withAnimation(Animation.linear(duration: 35).repeatForever(autoreverses: false)) {
-            cloud2Position = -150
-        }
-    }
-    
-    func moveCloud3() {
-        withAnimation(Animation.linear(duration: 40).repeatForever(autoreverses: false)) {
-            cloud3Position = -150
-        }
-    }
-    
     private var clouds: some View {
         ZStack {
             Image("Sun")
@@ -52,9 +34,6 @@ struct CloudView: View {
                 .scaledToFit()
                 .position(x: 100, y: 150)
             ZStack {
-                
-                
-                
                 Image(.cloud)
                     .resizable()
                     .frame(width: 150, height: 100)
@@ -80,17 +59,28 @@ struct CloudView: View {
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                             moveCloud3()
-                            
                         }
-                        
-                    }
-                
+                    }  
             }
         }
         .foregroundStyle(.white)
     }
-}
-
-#Preview {
-    CloudView()
+    
+    func moveCloud1() {
+        withAnimation(Animation.linear(duration: 30).repeatForever(autoreverses: false)) {
+            cloud1Position = -150
+        }
+    }
+    
+    func moveCloud2() {
+        withAnimation(Animation.linear(duration: 35).repeatForever(autoreverses: false)) {
+            cloud2Position = -150
+        }
+    }
+    
+    func moveCloud3() {
+        withAnimation(Animation.linear(duration: 40).repeatForever(autoreverses: false)) {
+            cloud3Position = -150
+        }
+    }
 }

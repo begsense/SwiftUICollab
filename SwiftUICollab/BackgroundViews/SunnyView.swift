@@ -1,5 +1,5 @@
 //
-//  BirdView.swift
+//  SunnyView.swift
 //  SwiftUICollab
 //
 //  Created by Elene Donadze on 6/12/24.
@@ -7,42 +7,20 @@
 
 import SwiftUI
 
-struct BirdView: View {
+struct SunnyView: View {
     @State private var bird1Position = UIScreen.main.bounds.width
     @State private var bird2Position = UIScreen.main.bounds.width + 35
     @State private var bird3Position = UIScreen.main.bounds.width + 30
-
-
     
     var body: some View {
         ZStack {
             birds
-            .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
         }
-    }
-    
-    func moveBird1() {
-        withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: false)) {
-            bird1Position = -50
-        }
-    }
-    
-    func moveBird2() {
-        withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
-            bird2Position = -50
-        }
-    }
-    
-    func moveBird3() {
-        withAnimation(Animation.linear(duration: 5).repeatForever(autoreverses: false)) {
-            bird3Position = -50
-        }
-        
     }
     
     private var birds: some View {
         ZStack {
-            
             Image("Sun")
                 .resizable()
                 .frame(width: 138, height: 138)
@@ -87,11 +65,22 @@ struct BirdView: View {
         )
     }
     
-        
-}
-
-
-
-#Preview {
-    BirdView()
+    //MARK: - Helping Functions
+    func moveBird1() {
+        withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: false)) {
+            bird1Position = -50
+        }
+    }
+    
+    func moveBird2() {
+        withAnimation(Animation.linear(duration: 4).repeatForever(autoreverses: false)) {
+            bird2Position = -50
+        }
+    }
+    
+    func moveBird3() {
+        withAnimation(Animation.linear(duration: 5).repeatForever(autoreverses: false)) {
+            bird3Position = -50
+        }
+    }
 }

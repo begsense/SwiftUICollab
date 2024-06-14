@@ -13,8 +13,7 @@ struct SwiftUICollabApp: App {
     @State private var selectedCity: String = "Tbilisi"
     var body: some Scene {
         WindowGroup {
-            WeatherView(selectedCity: $selectedCity)
-                
+            MainView(selectedCity: $selectedCity)
         }
         .modelContainer(for: City.self)
     }

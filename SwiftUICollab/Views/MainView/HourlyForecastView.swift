@@ -12,19 +12,19 @@ struct HourlyForecastView: View {
     @State var timezoneIdentifier: String
     @Binding private var hourlyForecasts: [Forecast.Hourly]
     @Binding private var timezoneOffset: Int
-
+    
     init(timezoneIdentifier: String, hourlyForecasts: Binding<[Forecast.Hourly]>, timezoneOffset: Binding<Int>) {
         self.timezoneIdentifier = timezoneIdentifier
         _hourlyForecasts = hourlyForecasts
         _timezoneOffset = timezoneOffset
     }
-
+    
     var hourlyDateFormatterDay: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d"
         return formatter
     }
-
+    
     var body: some View {
         VStack(alignment: .center) {
             HStack {
@@ -33,25 +33,24 @@ struct HourlyForecastView: View {
                     .fontWeight(.bold)
                     .foregroundStyle(Color.white)
                     .blur(radius: 0.25)
-                    
-
+                
                 Spacer()
-
+                
                 Text(hourlyDateFormatterDay.string(from: Date()))
                     .fontWeight(.regular)
                     .foregroundStyle(Color.white)
-
+                
             }
             .padding(.top, 12)
             .padding(.horizontal)
-
+            
             ScrollView(.horizontal) {
                 HStack(spacing: 12) {
                     ForEach(hourlyForecasts, id: \.dt) { hourly in
                         VStack(alignment: .center) {
                             Text("\(Int(hourly.temp)) °C")
-
-
+                            
+                            
                             if let weatherIconURL = hourly.weather.first?.weatherIconURL {
                                 WebImage(url: weatherIconURL)
                                     .resizable()
@@ -59,14 +58,14 @@ struct HourlyForecastView: View {
                                     .frame(width: 75, height: 75)
                             }
                             Text(DateFormatterManager.shared.formatTime(date: hourly.dt, timezoneOffset: timezoneOffset))
-
+                            
                         }
                         .padding(.top, 13)
                         .padding(.bottom, 20)
                         .frame(width: 70)
                         .frame(minHeight: 155)
                         .foregroundColor(Color.white)
-
+                        
                         .viewModifier(if: hourly.dt == hourlyForecasts.first?.dt) { view in
                             view.glassmorphism(backgroundColor: Color(UIColor(named: "white1") ?? .clear), cornerRadius: 20, blurOpacity: 1)
                                 .overlay(

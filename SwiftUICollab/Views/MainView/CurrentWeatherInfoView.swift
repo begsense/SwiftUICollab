@@ -30,7 +30,6 @@ struct CurrentWeatherInfoView: View {
             .padding(.bottom, 20)
         }
         .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.4)
-        
         .padding(.leading, 13)
         .padding(.trailing, 20)
         .padding(.bottom, 22)
