@@ -36,6 +36,7 @@
 		78620DDC2C1A425C00E4A296 /* CurrentWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */; };
 		78620DDE2C1A7C0800E4A296 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */; };
 		78620DE02C1A8C6500E4A296 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDF2C1A8C6500E4A296 /* SearchViewModel.swift */; };
+		788F38AF2C1BCB7D0019BF2D /* AlegreyaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 788F38AE2C1BCB7D0019BF2D /* AlegreyaSans-Bold.ttf */; };
 		BC155CE72C1BC47600461346 /* RainFall2.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC155CE52C1BC47600461346 /* RainFall2.sks */; };
 		BC155CEB2C1BC4AD00461346 /* SnowFall2.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC155CE92C1BC4AD00461346 /* SnowFall2.sks */; };
 		BCCF14172C1B810300FD54BA /* NightSnowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14132C1B810300FD54BA /* NightSnowing.swift */; };
@@ -71,6 +72,8 @@
 		78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInfoView.swift; sourceTree = "<group>"; };
 		78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		78620DDF2C1A8C6500E4A296 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		788F38AE2C1BCB7D0019BF2D /* AlegreyaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Bold.ttf"; sourceTree = "<group>"; };
+		788F38B02C1BCB8F0019BF2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC155CE52C1BC47600461346 /* RainFall2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall2.sks; sourceTree = "<group>"; };
 		BC155CE92C1BC4AD00461346 /* SnowFall2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall2.sks; sourceTree = "<group>"; };
 		BCCF14132C1B810300FD54BA /* NightSnowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightSnowing.swift; path = SwiftUICollab/Views/NightSnowing.swift; sourceTree = SOURCE_ROOT; };
@@ -107,6 +110,8 @@
 		6F74D9222C1975150074C62C /* SwiftUICollab */ = {
 			isa = PBXGroup;
 			children = (
+				788F38B02C1BCB8F0019BF2D /* Info.plist */,
+				788F38AD2C1BCB750019BF2D /* Fonts */,
 				6F74D9402C1A23160074C62C /* HelpingComponents */,
 				6F74D9232C1975150074C62C /* SwiftUICollabApp.swift */,
 				6F74D93A2C198C1A0074C62C /* NetworkService.swift */,
@@ -179,6 +184,14 @@
 				6F6DEE912C1BB785001E164F /* StarModel.swift */,
 			);
 			path = HelpingComponents;
+			sourceTree = "<group>";
+		};
+		788F38AD2C1BCB750019BF2D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				788F38AE2C1BCB7D0019BF2D /* AlegreyaSans-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		BC155CE42C1BC45D00461346 /* Sprite */ = {
@@ -258,6 +271,7 @@
 				6F74D92B2C1975170074C62C /* Preview Assets.xcassets in Resources */,
 				BC155CE72C1BC47600461346 /* RainFall2.sks in Resources */,
 				6F74D9282C1975170074C62C /* Assets.xcassets in Resources */,
+				788F38AF2C1BCB7D0019BF2D /* AlegreyaSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +445,8 @@
 				DEVELOPMENT_TEAM = FG33X32B98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUICollab/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "წვიმიfy";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -460,6 +476,8 @@
 				DEVELOPMENT_TEAM = FG33X32B98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUICollab/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "წვიმიfy";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

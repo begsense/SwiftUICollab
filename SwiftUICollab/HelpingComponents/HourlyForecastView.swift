@@ -68,6 +68,13 @@ struct HourlyForecastView: View {
                         .foregroundColor(Color.white)
                         .shadow(color: Color.black.opacity(0.1), radius: 1, x: -2, y: 3)
                         .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+                        .viewModifier(if: hourly.dt == hourlyForecasts.first?.dt) { view in
+                            view.glassmorphism(backgroundColor: Color(UIColor(named: "white1") ?? .clear), cornerRadius: 20, blurOpacity: 1)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(LinearGradient(gradient: Gradient(colors: [Color("borderTop"), Color("borderBottom")]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
+                                )
+                        }
                     }
                 }
             }
@@ -82,7 +89,7 @@ struct HourlyForecastView: View {
 
 extension View {
     @ViewBuilder
-    func `if`<Content: View>(_ condition: Bool, content: (Self) -> Content) -> some View {
+    func viewModifier<Content: View>(if condition: Bool, content: (Self) -> Content) -> some View {
         if condition {
             content(self)
         } else {
