@@ -7,24 +7,6 @@
 
 import Foundation
 
-// class SearchViewModel: ObservableObject {
-//    @Published var cities: City?
-//    @Published var forecast: Forecast?
-//    @Published var errorMessage: String?
-//
-//    private let networkService = NetworkService()
-//    private let cityAPIKey = "MmDtGhE02PkmgwzZ8vpung==hakrmbPcci8NwOeB"
-//    private let weatherAPIKey = "439d4b804bc8187953eb36d2a8c26a02"
-//
-//    enum ViewState {
-//        case sunny
-//        case cloudy
-//        case rainy
-//        case snowy
-//    }
-
-import Foundation
-
 class SearchViewModel: ObservableObject {
     enum ViewState {
         case sunny
@@ -32,8 +14,6 @@ class SearchViewModel: ObservableObject {
         case rainy
         case snowy
     }
-
-    @Published var viewState: ViewState = .sunny
 
     @Published var cities: [City] = []
     @Published var forecasts: [String: Forecast] = [:]
@@ -48,11 +28,13 @@ class SearchViewModel: ObservableObject {
         let headers = ["X-Api-Key": cityAPIKey]
 
         networkService.getData(urlString: baseURL, headers: headers) { (result: Result<[City], Error>) in
-            switch result {
-            case let .success(cities):
-                self.cities = cities
-            case let .failure(error):
-                self.errorMessage = error.localizedDescription
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(cities):
+                    self.cities = cities
+                case let .failure(error):
+                    self.errorMessage = error.localizedDescription
+                }
             }
         }
     }
@@ -101,26 +83,11 @@ class SearchViewModel: ObservableObject {
             case let .success(forecast):
                 DispatchQueue.main.async {
                     self.forecasts[city.name ?? ""] = forecast
+//                    self.forecasts[city] = forecast
                 }
             case let .failure(error):
                 self.errorMessage = error.localizedDescription
             }
         }
     }
-
-//    func updateViewState(for forecast: Forecast) {
-//        let main = forecast.current.weather.first?.main ?? ""
-//        switch main.lowercased() {
-//        case "clear":
-//            viewState = .sunny
-//        case "clouds":
-//            viewState = .cloudy
-//        case "rain":
-//            viewState = .rainy
-//        case "snow":
-//            viewState = .snowy
-//        default:
-//            viewState = .sunny
-//        }
-//    }
 }

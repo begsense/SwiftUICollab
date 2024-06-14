@@ -9,11 +9,17 @@ import SDWebImageSwiftUI
 import SwiftUI
 
 struct HourlyForecastView: View {
+    @StateObject var dateFormatterManager = DateFormatterManager.shared
+    @State var timezoneIdentifier: String
     let hourlyForecasts: [Forecast.Hourly]
     var hourlyDateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         return formatter
+    }
+
+    func updateTimeZone(_ identifier: String) {
+        dateFormatterManager.timezoneIdentifier = identifier
     }
 
     var hourlyDateFormatterDay: DateFormatter {
@@ -58,10 +64,15 @@ struct HourlyForecastView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 75, height: 75)
                             }
-
-                            Text(hourlyDateFormatter.string(from: hourly.dt))
+                            let dateFormatterManager: () = DateFormatterManager.shared.timezoneIdentifier = hourlyDateFormatterDay.string(from: Date())
+                            @State var time = DateFormatterManager.shared.hourlyDateFormatter.string(from: hourly.dt)
+                            Text(time)
                                 .shadow(color: Color.black.opacity(0.3), radius: 1, x: -2, y: 3)
                                 .shadow(color: Color.white.opacity(0.25), radius: 2, x: -1, y: 1)
+                            Text("\(hourly.dt)")
+                            
+                            
+
                         }
                         .padding(.top, 13)
                         .padding(.bottom, 20)
