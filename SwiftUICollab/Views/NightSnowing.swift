@@ -45,7 +45,7 @@ struct NightSnowing: View {
                 .scaledToFit()
                 .position(x: 100, y: 150)
             
-            SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+            SpriteView(scene: SnowFall2(), options: [.allowsTransparency])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
                 .foregroundStyle(Color.white)

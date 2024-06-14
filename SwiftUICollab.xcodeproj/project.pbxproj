@@ -36,8 +36,9 @@
 		78620DDC2C1A425C00E4A296 /* CurrentWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */; };
 		78620DDE2C1A7C0800E4A296 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */; };
 		78620DE02C1A8C6500E4A296 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78620DDF2C1A8C6500E4A296 /* SearchViewModel.swift */; };
+		BC155CE72C1BC47600461346 /* RainFall2.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC155CE52C1BC47600461346 /* RainFall2.sks */; };
+		BC155CEB2C1BC4AD00461346 /* SnowFall2.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC155CE92C1BC4AD00461346 /* SnowFall2.sks */; };
 		BCCF14172C1B810300FD54BA /* NightSnowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF14132C1B810300FD54BA /* NightSnowing.swift */; };
-		BCCF14192C1B812000FD54BA /* SpriteFiless in Resources */ = {isa = PBXBuildFile; fileRef = BCCF14182C1B812000FD54BA /* SpriteFiless */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,8 +71,9 @@
 		78620DDB2C1A425C00E4A296 /* CurrentWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInfoView.swift; sourceTree = "<group>"; };
 		78620DDD2C1A7C0800E4A296 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		78620DDF2C1A8C6500E4A296 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		BC155CE52C1BC47600461346 /* RainFall2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall2.sks; sourceTree = "<group>"; };
+		BC155CE92C1BC4AD00461346 /* SnowFall2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall2.sks; sourceTree = "<group>"; };
 		BCCF14132C1B810300FD54BA /* NightSnowing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NightSnowing.swift; path = SwiftUICollab/Views/NightSnowing.swift; sourceTree = SOURCE_ROOT; };
-		BCCF14182C1B812000FD54BA /* SpriteFiless */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpriteFiless; path = SwiftUICollab/HelpingComponents/SpriteFiless; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,14 +131,15 @@
 			isa = PBXGroup;
 			children = (
 				BCCF14132C1B810300FD54BA /* NightSnowing.swift */,
+				BC155CE42C1BC45D00461346 /* Sprite */,
 				783B3FE62C1A0842006EF0F1 /* MenuView.swift */,
 				6F74D9252C1975150074C62C /* WeatherView.swift */,
 				6F74D93C2C1A19690074C62C /* SearchView.swift */,
 				6F6DEE932C1BB7B8001E164F /* BirdView.swift */,
 				6F6DEE952C1BB7E4001E164F /* CloudView.swift */,
 				6F6DEE972C1BB806001E164F /* NightRaining.swift */,
-				6F6DEE992C1BB823001E164F /* Raining.swift */,
 				6F6DEE9B2C1BB840001E164F /* Snowing.swift */,
+				6F6DEE992C1BB823001E164F /* Raining.swift */,
 				6F6DEE9D2C1BB85D001E164F /* WarmCloudy.swift */,
 				6F6DEE9F2C1BB87B001E164F /* WarmNight.swift */,
 			);
@@ -164,7 +167,6 @@
 		6F74D9402C1A23160074C62C /* HelpingComponents */ = {
 			isa = PBXGroup;
 			children = (
-				BCCF14182C1B812000FD54BA /* SpriteFiless */,
 				783B3FE82C1A085E006EF0F1 /* Glassmorphism.swift */,
 				783B3FE32C1A0837006EF0F1 /* DailyForecastView.swift */,
 				783B3FE22C1A0837006EF0F1 /* HourlyForecastView.swift */,
@@ -177,6 +179,15 @@
 				6F6DEE912C1BB785001E164F /* StarModel.swift */,
 			);
 			path = HelpingComponents;
+			sourceTree = "<group>";
+		};
+		BC155CE42C1BC45D00461346 /* Sprite */ = {
+			isa = PBXGroup;
+			children = (
+				BC155CE52C1BC47600461346 /* RainFall2.sks */,
+				BC155CE92C1BC4AD00461346 /* SnowFall2.sks */,
+			);
+			path = Sprite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,9 +254,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC155CEB2C1BC4AD00461346 /* SnowFall2.sks in Resources */,
 				6F74D92B2C1975170074C62C /* Preview Assets.xcassets in Resources */,
+				BC155CE72C1BC47600461346 /* RainFall2.sks in Resources */,
 				6F74D9282C1975170074C62C /* Assets.xcassets in Resources */,
-				BCCF14192C1B812000FD54BA /* SpriteFiless in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
