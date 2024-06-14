@@ -14,7 +14,7 @@ class WeatherViewModel: ObservableObject {
     @Published var viewState: ViewState = .sunny
     
     private let networkService = NetworkService()
-    private let cityAPIKey = "MmDtGhE02PkmgwzZ8vpung==hakrmbPcci8NwOeB"
+    private let cityAPIKey = "mL11N1OcSvHnMzpXwoIQ+w==ybPPjPTdov7XklZ9"
     private let weatherAPIKey = "439d4b804bc8187953eb36d2a8c26a02"
 
     enum ViewState {

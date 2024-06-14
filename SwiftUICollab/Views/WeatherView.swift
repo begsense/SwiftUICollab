@@ -13,7 +13,6 @@ struct WeatherView: View {
     @StateObject private var viewModel = WeatherViewModel()
     @Environment(\.colorScheme) var colorScheme
 
-
     var body: some View {
         let temperature = viewModel.forecast?.current.temp ?? 00.00
         let maxTemp = viewModel.forecast?.daily.first?.temp.max ?? 00.00
@@ -21,11 +20,11 @@ struct WeatherView: View {
         let humidity = viewModel.forecast?.current.humidity
         let uvi = viewModel.forecast?.current.uvi
         let windSpeed = viewModel.forecast?.current.wind_speed
-        
+
         NavigationStack {
             ZStack {
                 animationView
-                
+
                 GeometryReader { geometry in
                     MenuView(selectedCity: $selectedCity)
                         .frame(width: 170, height: 36)
@@ -35,13 +34,13 @@ struct WeatherView: View {
 
                 ScrollView {
                     CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp))
-                    
+
                     AdditionalInfoView(humidity: humidity, uvi: uvi, windSpeed: windSpeed)
-                    
+
                     if let hourlyForecasts = viewModel.forecast?.hourly {
                         HourlyForecastView(hourlyForecasts: hourlyForecasts)
                     }
-                    
+
                     if let dailyForecasts = viewModel.forecast?.daily {
                         DailyForecastView(dailyForecasts: dailyForecasts)
                     }
@@ -62,10 +61,10 @@ struct WeatherView: View {
             viewModel.getWeatherForecast(for: newCity)
         }
     }
-    
+
     private var animationView: some View {
         let isDarkMode = colorScheme == .dark
-        
+
         switch viewModel.viewState {
         case .sunny:
             return isDarkMode ? AnyView(WarmCloudy()) : AnyView(BirdView())

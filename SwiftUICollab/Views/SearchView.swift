@@ -15,6 +15,7 @@ struct SearchView: View {
     @Environment(\.modelContext) var Context
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedCity: String
+//    @Published var forecasts: [String: Forecast] = [:]
 
     var body: some View {
         NavigationStack {
@@ -52,21 +53,26 @@ struct SearchView: View {
                 .animation(.default, value: searchText)
 
                 ScrollView {
-                    VStack(alignment: .leading) {
-                        ForEach(viewModel.cities, id: \.self) { city in
-                            Button(action: {
-                                if let index = savedCities.firstIndex(where: { $0.id == city.id }) {
-                                } else {
-                                    Context.insert(city)
-                                }
-                                selectedCity = city.name ?? ""
-                                presentationMode.wrappedValue.dismiss()
+                    if searchText.isEmpty {
+                        favoritesCell
+                    } else {
+                        VStack(alignment: .leading) {
+                            ForEach(viewModel.cities, id: \.self) { city in
 
-                            }, label: {
-                                Text(city.name ?? "")
-                                    .foregroundStyle(Color.black)
-                            })
-                            .padding(.bottom, 19)
+                                Button(action: {
+                                    if let _ = savedCities.firstIndex(where: { $0.id == city.id }) {
+                                    } else {
+                                        Context.insert(city)
+                                    }
+                                    selectedCity = city.name ?? ""
+                                    presentationMode.wrappedValue.dismiss()
+
+                                }, label: {
+                                    Text(city.name ?? "")
+                                        .foregroundStyle(Color.black)
+                                })
+                                .padding(.bottom, 19)
+                            }
                         }
                     }
                 }
@@ -79,5 +85,35 @@ struct SearchView: View {
             .background(Color.searchBackground)
         }
         .background(Color.searchBackground)
+        .onAppear {
+        }
+    }
+
+    private var favoritesCell: some View {
+        ForEach(savedCities, id: \.self) { city in
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(city.name ?? "")
+                        .font(.custom("SF Pro Display", size: 25))
+
+                    Spacer()
+                        .frame(height: 12)
+
+                    Text("\(viewModel.forecasts[city.name ?? ""]?.current.weather.first?.main ?? "")")
+                        .font(.custom("SF Pro Display", size: 10))
+                }
+
+                Spacer()
+                Text("\(Int(viewModel.forecasts[city.name ?? ""]?.current.temp ?? 00))°")
+                    .font(.custom("SF Pro Display", size: 53))
+            }
+            .foregroundStyle(Color.white)
+            .onAppear { viewModel.getWeatherForecast(for: city.name ?? "")
+            }
+            .padding(13)
+            .background(LinearGradient(colors: [Color(red: 46 / 255, green: 176 / 255, blue: 221 / 255, opacity: 1), Color(red: 142 / 255, green: 173 / 255, blue: 225 / 255, opacity: 1)], startPoint: .top, endPoint: .bottom))
+            .cornerRadius(16)
+            .padding(20)
+        }
     }
 }
