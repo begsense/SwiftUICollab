@@ -9,16 +9,15 @@ import SwiftData
 import SwiftUI
 
 struct SearchView: View {
+    //MARK: - Properties
     @State var searchText = ""
+    @State private var showCityAlreadyAddedAlert = false
+    @Binding var selectedCity: String
     @StateObject var viewModel = SearchViewModel()
     @Query var savedCities: [City]
     @Environment(\.modelContext) var Context
     @Environment(\.presentationMode) var presentationMode
-    @Binding var selectedCity: String
-    @State private var showAlert = false
-    @State private var showCityAlreadyAddedAlert = false
-    @State private var showTbilisiAlert = false
-
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -27,7 +26,7 @@ struct SearchView: View {
                         Image(systemName: "magnifyingglass")
                             .padding([.top, .bottom], 10)
                             .padding(.leading, 8)
-
+                        
                         TextField("Enter a city name", text: $searchText)
                             .autocorrectionDisabled()
                             .padding(.vertical, 10)
@@ -40,7 +39,7 @@ struct SearchView: View {
                     .cornerRadius(10)
                     .padding(.leading, 16)
                     .padding(.trailing, searchText.isEmpty ? 20 : 14)
-
+                    
                     if !searchText.isEmpty {
                         Button(action: {
                             withAnimation {
@@ -54,23 +53,23 @@ struct SearchView: View {
                     }
                 }
                 .animation(.default, value: searchText)
-
+                
                 ScrollView {
                     if searchText.isEmpty {
                         favoritesCell
                     } else {
                         VStack(alignment: .leading) {
                             ForEach(viewModel.cities, id: \.self) { city in
-
+                                
                                 Button(action: {
-                                    if let index = savedCities.firstIndex(where: { $0.name == city.name }) {
+                                    if savedCities.firstIndex(where: { $0.name == city.name }) != nil {
                                         showCityAlreadyAddedAlert = true
                                     } else {
                                         Context.insert(city)
                                         selectedCity = city.name ?? ""
                                         presentationMode.wrappedValue.dismiss()
                                     }
-
+                                    
                                 }, label: {
                                     Text(city.name ?? "")
                                         .foregroundStyle(Color.black)
@@ -97,7 +96,7 @@ struct SearchView: View {
             )
         }
     }
-
+    
     private var favoritesCell: some View {
         return ForEach(savedCities, id: \.self) { city in
             HStack {
@@ -105,10 +104,10 @@ struct SearchView: View {
                     Text(city.name ?? "")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
-
+                    
                     Spacer()
                         .frame(height: 12)
-
+                    
                     Text("\(viewModel.forecasts[city.name ?? ""]?.current.weather.first?.main ?? "")")
                         .font(.system(size: 10))
                         .fontWeight(.bold)
@@ -116,7 +115,7 @@ struct SearchView: View {
                 .padding(.leading, 15)
                 .padding(.top, 11)
                 .padding(.bottom, 11)
-
+                
                 Spacer()
                 Text("\(Int(viewModel.forecasts[city.name ?? ""]?.current.temp ?? 00))°")
                     .font(.custom("SF Pro Display", size: 53))
@@ -139,7 +138,7 @@ struct SearchView: View {
             }
         }
     }
-
+    
     private func deleteCity(_ city: City) {
         if let index = savedCities.firstIndex(of: city) {
             Context.delete(savedCities[index])

@@ -12,6 +12,7 @@ struct MenuView: View {
     @Binding var selectedCity: String
     @Query var savedCities: [City]
     @Environment(\.modelContext) var Context
+    
     var body: some View {
         Menu {
             ForEach(savedCities, id: \.self) { option in
@@ -21,16 +22,19 @@ struct MenuView: View {
                     Label(option.name ?? "", systemImage: option.name == selectedCity ? "checkmark" : "")
                 }
             }
+            
             NavigationLink(destination: SearchView(selectedCity: $selectedCity)) {
                 Label("Add new location", systemImage: "location.fill")
             }
         } label: {
             HStack {
                 Image("location")
+                
                 Text(selectedCity)
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
+                
                 Image("dropDown")
             }
             .padding([.trailing, .leading], 14)

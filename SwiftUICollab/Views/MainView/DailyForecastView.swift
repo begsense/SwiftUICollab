@@ -15,7 +15,7 @@ struct DailyForecastView: View {
         formatter.dateFormat = "EEEE"
         return formatter
     }
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack(spacing: 12) {
@@ -25,39 +25,39 @@ struct DailyForecastView: View {
                             HStack {
                                 Text(dateFormatter.string(from: daily.dt))
                                     .font(.custom("AlegreyaSans-Bold", size: 18))
-
+                                
                                 Spacer()
                             }
                             .foregroundStyle(Color.white)
                         }
-
+                        
                         Spacer()
-
+                        
                         if let weatherIconURL = daily.weather.first?.weatherIconURL {
                             WebImage(url: weatherIconURL)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 75, height: 75)
                         }
-
+                        
                         Spacer()
-
+                        
                         VStack(alignment: .trailing) {
                             HStack {
                                 Spacer()
                                 HStack(spacing: 0) {
                                     Text("\(Int(daily.temp.max))")
                                         .font(.custom("AlegreyaSans-Bold", size: 18))
-
+                                    
                                     Text("°C")
                                         .font(.custom("AlegreyaSans-Bold", size: 10))
                                 }
                                 .foregroundStyle(Color.white)
-
+                                
                                 HStack(spacing: 0) {
                                     Text("\(Int(daily.temp.min))")
                                         .font(.custom("AlegreyaSans-Bold", size: 18))
-
+                                    
                                     Text("°C")
                                         .font(.custom("AlegreyaSans-Bold", size: 10))
                                 }
@@ -75,7 +75,7 @@ struct DailyForecastView: View {
             .padding(.leading, 13)
             .padding(.trailing, 19)
             .padding(.bottom, 14)
-
+            
         }
         .glassmorphism(blurStyle: .systemUltraThinMaterial, backgroundColor: Color(UIColor(named: "color") ?? .clear), cornerRadius: 20, blurOpacity: 0.85)
         .padding(.leading, 13)

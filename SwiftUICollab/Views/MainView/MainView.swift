@@ -1,5 +1,5 @@
 //
-//  WeatherView.swift
+//  MainView.swift
 //  SwiftUICollab
 //
 //  Created by M1 on 12.06.2024.
@@ -7,11 +7,11 @@
 
 import SDWebImageSwiftUI
 import SwiftUI
- 
-struct WeatherView: View {
+
+struct MainView: View {
     @Binding var selectedCity: String
     @StateObject private var viewModel = WeatherViewModel()
- 
+    
     var body: some View {
         let temperature = viewModel.forecast?.current.temp ?? 00.00
         let maxTemp = viewModel.forecast?.daily.first?.temp.max ?? 00.00
@@ -19,22 +19,23 @@ struct WeatherView: View {
         let humidity = viewModel.forecast?.current.humidity
         let uvi = viewModel.forecast?.current.uvi
         let windSpeed = viewModel.forecast?.current.wind_speed
- 
+        
         NavigationStack {
             ZStack {
                 animationView
+                
                 GeometryReader { geometry in
                     MenuView(selectedCity: $selectedCity)
                         .frame(width: 170, height: 36)
                         .offset(x: geometry.size.width - 140, y: geometry.safeAreaInsets.top - 36)
                         .ignoresSafeArea()
                 }
- 
+                
                 ScrollView {
                     CurrentWeatherInfoView(temperature: Int(temperature), maxTemp: Int(maxTemp), minTemp: Int(minTemp), description: viewModel.forecast?.current.weather.first?.description ?? "")
- 
+                    
                     AdditionalInfoView(humidity: humidity, uvi: uvi, windSpeed: windSpeed)
- 
+                    
                     if (viewModel.forecast?.hourly) != nil {
                         HourlyForecastView(
                             timezoneIdentifier: DateFormatterManager.shared.timezoneIdentifier,
@@ -42,12 +43,11 @@ struct WeatherView: View {
                             timezoneOffset: $viewModel.timezoneOffset
                         )
                     }
- 
+                    
                     if let dailyForecasts = viewModel.forecast?.daily {
                         DailyForecastView(dailyForecasts: dailyForecasts)
                     }
                 }
- 
                 .scrollIndicators(.hidden)
                 .padding(.top, 90)
             }
@@ -64,20 +64,19 @@ struct WeatherView: View {
         }
         .onChange(of: selectedCity) { _, newCity in
             viewModel.getWeatherForecast(for: newCity)
-//            viewModel.updateIsNight()
         }
     }
- 
+    
     private var animationView: some View {
         switch viewModel.viewState {
         case .sunny:
-            return viewModel.isNight ? AnyView(WarmNight()) : AnyView(BirdView())
+            return viewModel.isNight ? AnyView(DarkSunnyView()) : AnyView(SunnyView())
         case .cloudy:
-            return viewModel.isNight ? AnyView(WarmCloudy()) : AnyView(CloudView())
+            return viewModel.isNight ? AnyView(DarkCloudyView()) : AnyView(CloudyView())
         case .rainy:
-            return viewModel.isNight ? AnyView(NightRaining()) : AnyView(Raining())
+            return viewModel.isNight ? AnyView(DarkRainyView()) : AnyView(RainyView())
         case .snowy:
-            return viewModel.isNight ? AnyView(NightSnowing()) : AnyView(Snowing())
+            return viewModel.isNight ? AnyView(DarkSnowyView()) : AnyView(SnowyView())
         }
     }
 }
