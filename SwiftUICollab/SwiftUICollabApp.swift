@@ -14,6 +14,7 @@ struct SwiftUICollabApp: App {
     var body: some Scene {
         WindowGroup {
             WeatherView(selectedCity: $selectedCity)
+                
         }
         .modelContainer(for: City.self)
     }

@@ -103,13 +103,15 @@ struct SearchView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text(city.name ?? "")
-                        .font(.custom("SF Pro Display", size: 25))
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
 
                     Spacer()
                         .frame(height: 12)
 
                     Text("\(viewModel.forecasts[city.name ?? ""]?.current.weather.first?.main ?? "")")
-                        .font(.custom("SF Pro Display", size: 10))
+                        .font(.system(size: 10))
+                        .fontWeight(.bold)
                 }
                 .padding(.leading, 15)
                 .padding(.top, 11)
