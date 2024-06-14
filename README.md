@@ -19,3 +19,6 @@ Attention: This is super hard so read carefully
 -Enter the location you want to check the weather for from the above right corner 
 -Check the weather and humidity three times a day, before eating.
 -You can add and delete locations (using long press) but you CAN NOT DELETE TBILISI, why? cause.
+
+
+https://trello.com/invite/b/MeOYHsZO/ATTI3f80fe65b358cd6680f821f6f23776972DA306D4/წვიმიfy
