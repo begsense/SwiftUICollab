@@ -45,7 +45,7 @@ struct Snowing: View {
                 .scaledToFit()
                 .position(x: 100, y: 150)
             
-            SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+            SpriteView(scene: SnowFall2(), options: [.allowsTransparency])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
                 .foregroundStyle(Color.white)
@@ -54,14 +54,14 @@ struct Snowing: View {
 }
 
 
-class SnowFall: SKScene {
+class SnowFall2: SKScene {
     override func sceneDidLoad() {
         
         size = UIScreen.main.bounds.size
         scaleMode = .resizeFill
         anchorPoint = CGPoint(x: 0.5, y: 1)
         backgroundColor = .clear
-        let node = SKEmitterNode(fileNamed: "SnowFall.sks")!
+        let node = SKEmitterNode(fileNamed: "SnowFall2.sks")!
         addChild(node)
         node.particlePositionRange.dx = UIScreen.main.bounds.width
     }

@@ -45,13 +45,12 @@ struct NightRaining: View {
                 .scaledToFit()
                 .position(x: 100, y: 150)
             
-            SpriteView(scene: RainFall(), options: [.allowsTransparency])
+            SpriteView(scene:RainFall2(), options: [.allowsTransparency])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
         }
     }
 }
-
 
 
 #Preview {
